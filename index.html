@@ -13,19 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template
-    <link href="carousel.css" rel="stylesheet"> -->
   </head>
-
 
 <!-- NAVBAR
 ================================================== 
@@ -85,13 +73,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Regnow</a>
+        <a class="navbar-brand" href="index.html">Regnow</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">About</a></li>
+          <li class="active"><a href="partials/about.html">About</a></li>
           <li><a href="mailto:help@illiniregnow.com?Subject=More%20Information">Contact</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">ClassTable<b class="caret"></b></a>
@@ -113,7 +101,7 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Sign Up</button></li>
+          <li><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup">Sign Up</button></li>
           <li><a href="partials/signin.html">Sign In</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
@@ -129,6 +117,80 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
+<!-- ================================================== -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <header class="modal-title" id="myModalLabel"><b>Create An Account</b>
+              <b><a href="partials/signin.html">LOG IN?</a></b>
+            </header>
+          </div>
+
+<!--================================================== -->
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="name" placeholder="Name">
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="username" class="col-sm-2 control-label">Username</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="name" placeholder="Username">
+          </div>
+      </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email Address</label>
+          <div class="col-sm-7">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email Address">
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-7">
+          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
+        <div class="col-sm-7">
+          <input type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> <b>Yes, sign me up for Regnow's newsletter.</b>
+            </label>
+        </div>
+      </div>
+    </div>
+ <!--     <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Sign in</button>
+        </div>
+      </div>
+-->
+    </form>
+          
+          <div class="modal-footer">
+            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+            <button type="Submit" class="btn btn-primary" data-dismiss="modal">Sign Up</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ================================================== -->
 
     <!-- Carousel
     ================================================== -->
@@ -146,7 +208,7 @@
             <div class="carousel-caption">
               <h1>Registration.</h1>
               <p>Regnow makes the class registration process simplefied.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <p><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup">Sign up today</button></p>
             </div>
           </div>
         </div>
@@ -156,7 +218,7 @@
             <div class="carousel-caption">
               <h1>Class Information.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <p><a class="btn btn-lg btn-primary" href="partials/about.html" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -295,29 +357,6 @@
         </div>
       </div>
     </div>
-
-<!-- ============================================================= 
-
-<button data-target="#temp" class="btn btn-primary btn-lg" data-toggle="modal">Launch demo modal</button>
-
-<div id="temp" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <form id="myForm" method="post">
-          <input type="hidden" value="hello" id="myField">
-        <button id="myFormSubmit" type="submit">Submit</button>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
-</div>
-
--->
 
  <!-- ============================================================== -->
 
