@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Automated class registration system.">
+    <meta name="author" content="Rishi Girish">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Regnow: Registration Made Easy</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template
+    <link href="carousel.css" rel="stylesheet"> -->
+  </head>
+
+
+<!-- NAVBAR
+================================================== 
+  <body>
+   <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"> RegNow </a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li class="navbar-right"><a href="#Sign Up">Sign Up</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+-->
+<body>
+
+<!--  NAVBAR
+================================================== -->
+
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Regnow</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ClassTable<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/partials/ClassTablePage.html">Course Information</a></li>
+              <li><a href="/partials/ClassPage.html">Class History</a></li>
+              <li><a href="index_old.html">Professor Ratings</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Fall 2014</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Summer 2014</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Sign Up</button></li>
+          <li><a href="#">Sign In</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">My Profile</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Change Term</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Registration Settings</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="img/back5.jpg" alt="First slide" width="1500" height="400">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Registration.</h1>
+              <p>Regnow makes the class registration process simplefied.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="img/back6.jpg" alt="Second slide" width="1500" height="200">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Class Information.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="img/back7.jpg" alt="Third slide" width="1500" height="800">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Professor Rating.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse classes</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+
+    <!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="img/back1.jpg" alt="Generic placeholder image" width="200" height="200">
+          <h2>Class Registration</h2>
+          <p>Automated registration is the future of this University. We are the cornerstone of techology and we have to lead the way. Our destinies may not meet, but that is not going to diminish our resolve. Period.</p>
+          <p><a class="btn btn-default" href="partials/404.html" role="button">View details &raquo;</a></p>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="img/back2.jpg" alt="Generic placeholder image" width="200" height="200">
+          <h2>Class Statistics</h2>
+          <p>Get all the numbers you need to find the best classes for you. Easy A's to the rest. In-depth information about grade distribution and various other metrics to get you the grade you always wanted.</p>
+          <p><a class="btn btn-default" href="partials/404.html" role="button">View details &raquo;</a></p>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="img/back3.jpg" alt="Generic placeholder image" width="200" height="200">
+          <h2>Professor Rating</h2>
+          <p>But we're not going to be threatened by issues: we're going to put 'em front and center. We're gonna raise the level of public debate in this country, and let that be our legacy.</p>
+          <p><a class="btn btn-default" href="partials/404.html" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">As every student in Philosophy 101 learns, nothing can force me to believe that anyone except me is conscious. This power to deny that other people have feelings is not just an academic exercise but an all-too-common vice, as we see in the long history of human cruelty.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="img/logo4.jpg" width="500" height="500" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="img/logo2.jpg" alt="Generic placeholder image">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">As long as no negative reviews and the author's. This game is expected to feature the players always. It's a great advantage of the course, or chocolate consumption the main. How to Choose protein, development and the course of revenue.</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Built at home and for people at home. Don't worry. We always have your back. This is not a comment supported by our lawyers. For full legal disclosure, please visit the Terms page. All in all, we can say that, we are not gonna screw you. Holla!!</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="img/logo3.png" width="300" height="300" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+<!-- Button trigger modal
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      Launch demo modal
+    </button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h1 class="modal-title" id="myModalLabel">Terms and Conditions</h1>
+          </div>
+          <div class="modal-body">
+            <h4>The MIT License</h4>
+
+            <h5>Copyright (c) 2014 Regnow System, Inc. http://illiniregnow.com</h5>
+
+            <p>Permission is hereby granted, free of charge, to any person obtaining a copy
+            of this software and associated documentation files (the "Software"), to deal
+            in the Software without restriction, including without limitation the rights
+            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+            copies of the Software, and to permit persons to whom the Software is
+            furnished to do so, subject to the following conditions:
+
+            The above copyright notice and this permission notice shall be included in
+            all copies or substantial portions of the Software.</p>
+
+            <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+            THE SOFTWARE.</p>
+
+          </div>
+          <div class="modal-footer">
+            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ============================================================= 
+
+<button data-target="#temp" class="btn btn-primary btn-lg" data-toggle="modal">Launch demo modal</button>
+
+<div id="temp" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <form id="myForm" method="post">
+          <input type="hidden" value="hello" id="myField">
+        <button id="myFormSubmit" type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+
+-->
+
+ <!-- ============================================================== 
+
+
+
+          </li>
+          <li class="expandable hidewhenloggedin sign-in-box">
+            <a href="#" class="toggle">Sign In <span class="expand">+</span></a>
+            <div class="panel">
+              <div class="sign-in-form">
+                            <fieldset>
+                      <input type="text" name="LoginUserName" title="Username" placeholder="Username" autocapitalize="off" autocorrect="off" class="input removespecialchars handlereturn" maxlength="20" />
+                      <input type="password" name="LoginPassword" title="Password" placeholder="Password" class="input handlereturn" maxlength="100" />
+                      <input type="hidden" name="hidden_LoginPassword" />
+                      <a href="https://www.namecheap.com/myaccount/login.aspx" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_topNavLoginLink" class="head-loginb ncRedirectButton btn sign-in-btn btn-block" rel="nofollow">Sign In</a>
+                      <a href="https://manage.www.namecheap.com/myaccount/rememberpwd.asp" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_passwordRemiderLink" title="Password Reminder">Forgot your password?</a>
+                            </fieldset>
+              </div>
+            </div>
+          </li>
+        </li>
+-->
+<!--
+<div class="module create-account-module">
+                    <header>
+                        Create An Account<a href="/myaccount/login.aspx" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_lnkLogin">Log in?</a>
+                    </header>
+                    <ul>
+                        <li>
+                            <fieldset>
+                                <div id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_errorDisplayControl_errorDisplayParentDiv" class="force-hide">
+    
+    <p>
+        <strong class="title"></strong>
+        
+    </p>
+</div>
+
+
+                                
+                                <div id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_NotificationDiv" class="group"><p>New to Namecheap? Quickly signup for an account now.</p></div>
+                                <div class="group loading">
+                                    <label>
+                                        Username</label>
+                                    <input name="ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$SignupUName" type="text" maxlength="20" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_SignupUName" title="Username" class="nc_username nc_username_required" placeholder="Username" autocomplete="off" autocapitalize="off" autocorrect="off">
+                                    <span class="label invalid hidden nc_username_Error"></span>
+                                    <p class="mod-error-message hidden nc_username_Error_Description"></p>
+                                </div>
+                                <div class="group">
+                                    <label for="SignupPWord">
+                                        Password</label>
+                                    <input name="ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$SignupPWord" type="password" maxlength="100" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_SignupPWord" title="Password" class="nc_password nc_password_required" placeholder="Password" autocomplete="off">
+                                    <span class="label invalid hidden nc_password_Error"></span>
+                                    <p class="mod-error-message hidden nc_password_Error_Description"></p>
+                                    <input type="hidden" name="hidden_ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$SignupPWord">
+                                </div>
+                                <div class="group">
+                                    <label for="ConfirmPassword">
+                                        Confirm Password</label>
+                                    <input name="ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$ConfirmPassword" type="password" maxlength="100" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_ConfirmPassword" title="Password again" class="nc_password_confirm nc_password_confirm_required" placeholder="Password" autocomplete="off">
+                                    <span class="label invalid hidden nc_password_confirm_Error"></span>
+                                    <p class="mod-error-message hidden nc_password_confirm_Error_Description"></p>
+                                    <input type="hidden" name="hidden_ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$ConfirmPassword">
+                                </div>
+                                <div class="group">
+                                    <label for="FirstName">
+                                        First Name</label>
+                                    <input name="ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$FirstName" type="text" maxlength="60" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_FirstName" title="Your first name" class="nc_firstname nc_firstname_required" placeholder="First Name">
+                                    <span class="label invalid hidden nc_firstname_Error"></span>
+                                    <p class="mod-error-message hidden nc_firstname_Error_Description"></p>
+                                </div>
+                                <div class="group">
+                                    <label for="LastName">
+                                        Last Name</label>
+                                    <input name="ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$LastName" type="text" maxlength="60" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_LastName" title="Your last name" class="nc_lastname nc_lastname_required" placeholder="Last Name">
+                                    <span class="label invalid hidden nc_lastname_Error"></span>
+                                    <p class="mod-error-message hidden nc_lastname_Error_Description"></p>
+                                </div>
+                                <div class="group loading">
+                                    <label for="Email">
+                                        Email Address</label>
+                                    <input name="ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$Email" type="text" maxlength="128" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_Email" title="Your email address" class="Email nc_email nc_email_required" placeholder="Email Address">
+                                    <span class="label invalid hidden nc_email_Error"></span>
+                                    <p class="mod-error-message hidden nc_email_Error_Description"></p>
+                                </div>
+                                <div class="group">
+                                    <label class="checkbox" for="Newsletter">
+                                        <input name="ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$Newsletter" type="checkbox" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_Newsletter" checked="checked">Yes,
+                                    sign me up for Namecheap's newsletter</label>
+                                    <p id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_span1">
+                                        By creating an account, you agree with our <a href="/legal">Terms of Service</a>.
+                                    </p>
+                                    
+                                </div>
+                                <div class="group">
+                                    
+                                    
+                                </div>
+                                <div class="group center">
+                                    <input type="submit" name="ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$CreateUserButton" value="Create Account and Continue" onclick="encodePasswordValuesToBase64(this,true);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$ctl00$ctl00$base_content$web_base_content$home_content$page_content_left$ctl02$CreateUserButton&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_ctl00_ctl00_ctl00_base_content_web_base_content_home_content_page_content_left_ctl02_CreateUserButton" class="btn normal-btn nc_signup_submit">
+                                </div>
+                                <noscript>
+                                    &lt;div class="rounded" style="background-color: #cff; padding: 10px; margin-top: 10px; font-size: 0.9em;"&gt;
+                                        Please note that you should have &lt;strong&gt;javascript enabled&lt;/strong&gt;, especially
+                                    if you have special characters in your password.
+                                    &lt;/div&gt;
+                                </noscript>
+                            </fieldset>
+                        </li>
+                    </ul>
+                </div>
+-->
+
+ <!-- ============================================================== -->
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2014 Regnow Systems, Inc.     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Terms</button></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!--<script src="../../assets/js/docs.min.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<style>
+	.small
+	{
+	  height:400px;
+	  overflow: auto;
+	}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+    var height = $(window).height();
+    $("#changeWindowSize").css("height", height-200);
+});
+</script>
+<div class="small" id="changeWindowSize">
+	<table class="table" >
+		<tr>
+			<td>
+				<table  class="table table-striped table-bordered">
+					<tr ng-repeat="subject in subjects"><td ng-click="showClasses(subject.id)">{{subject.subject}}</td></tr>
+				</table>
+			</td>
+			<td>
+				<table class="table table-striped table-bordered" ng-show="classSelected">
+					<tr ng-repeat="courses in courseNumbers[subjectSelected]"><td>{{courses.courseNum}}</td></tr>
+					
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
