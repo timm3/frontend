@@ -1,4 +1,4 @@
-import flask, ManageUserDatabase, pymongo, Professor, User, hashlib
+import flask, pymongo, Professor, User, hashlib
 from flask import Flask, request, session, LoginManager
 from pymongo import MongoClient
 
@@ -47,12 +47,11 @@ def login():
                 login_user(user)
                 flash("Logged in Successfully.")
                 return app.send_static_file("index.html")
-            
+        #if it doesn't, fall through to the signin.html page render    
     return app.send_static_file("/partials/signin.html")
 
 @app.route('/logout')
 @login_required
 def logout():
-    session.pop('authenticationKey', None)
-    return app.send_static_file('/partials/signout.html')
-    #return app.send_static_file('index.html')
+    logout_user()
+    return app.send_static_file("index.html");
