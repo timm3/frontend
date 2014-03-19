@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+	
+		<link type='text/css' rel='stylesheet' href='css/main.css'>
+		
+		<script type='text/javascript' src='//d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v5.0.1.min.js'></script>
+		<script type='text/javascript' src='examples/part1.js'></script>
+		<script type='text/javascript' src='examples/part2.js'></script>
+		<script type='text/javascript' src='examples/courses.js'></script>
+	</head>
+	
+	<body>
+		<div id='main_container'>
+			<canvas id='time_table' height='500px' width='800px'>
+			
+			</canvas>
+			<div id='kinetic_container'>
+			
+			</div>
+			<div id='debugg_view'>
+			
+			</div>
+			<script defer='defer'>
+				
+				
+				var o1 = {code: "MATH", subject: "Calc III", crn: "10145", startTime: '01:00 PM', endTime: '02:30 PM', days: 'MWF '};
+				var o2 = {code: "CS", subject: "DAta structures", crn: "30014", startTime: '10:45 AM', endTime: '11:50 AM', days: 'TR'};
+				var o3 = {code: "AAS", subject: "Intro to AAS", crn: "15421", startTime: '08:30 AM', endTime: '08:50 AM', days: 'MWF'};
+				var o4 = {code: "MATH", subject: "Linear Algebra", crn: "55555", startTime: '03:00 PM', endTime: '03:50 PM', days: 'MW'};
+				var o5 = {code: "ENG", subject: "Gen. Engineering", crn: "66566", startTime: '03:00 PM', endTime: '03:50 PM', days: 'MW'};
+				
+				var courses = new Array();
+				courses.push(o1, o2, o3, o4, o5);
+				
+				printAllCourses(courses);
+				drawOnCanvas();
+
+			</script>
+		</div>
+	</body>
+</html>
