@@ -1,5 +1,5 @@
 'use strict';
 
 /* Directives */
-var appDir = angular.module('RegNow.directives', []);
+var appDir = angular.module('RegNow.directives', ['ui.bootstrap']);
 
