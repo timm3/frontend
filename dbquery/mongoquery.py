@@ -30,11 +30,12 @@ class MongoQuery(object):
     #
     #==========================================================================
     def connect(self):
-        
-        try:
-            self.client = MongoClient(self.host, self.port)
-        except ConnectionFailure:
-            print("Connection to [" + self.host + "] at port: " + str(self.port) + "failed.")
+        while not self.client:
+            try:
+                self.client = MongoClient(self.host, self.port)
+            except ConnectionFailure:
+                print("Connection to [" + self.host + "] at port: " + str(self.port) + " failed.")
+            
         
         print("Connected to [" + self.host + "] at port: " + str(self.port) + ".")    
         
@@ -117,21 +118,22 @@ class CourseQuery(MongoQuery):
         super(CourseQuery, self).__init__()
         self.set_database_name('courses')
         self.set_collection('courses_general')
-        self.connect()
         
     
     #===========================================================================
     # __del__
     #===========================================================================
     def __del__(self):
-        self.disconnect()
-    
+        pass
     
     #===========================================================================
     # get_subject_codes
     #===========================================================================
     def get_subject_codes(self):
-        return sorted(self.client[self.db_name][self.collection_name].distinct('code'))
+        list = self.client[self.db_name][self.collection_name].distinct('code')
+        if 'TST' in list:
+            list.remove('TST')
+        return sorted(list)
     
     
     def get_course_ids_for_subject(self, subject_code):
@@ -140,6 +142,12 @@ class CourseQuery(MongoQuery):
         for json in cursor:
             list.append(json['course_id'])
         return sorted(list)
+    
+    def get_course_ids_all_subjects(self):
+        dict = {}
+        for subject_code in self.get_subject_codes():
+            dict[subject_code] = self.get_course_ids_for_subject(subject_code)
+        return dict
         
             
     #===========================================================================
@@ -169,15 +177,13 @@ class SectionQuery(MongoQuery):
         super(SectionQuery, self).__init__()
         self.set_database_name('courses')
         self.set_collection('courses_section')
-        self.connect()
     
         
     #===========================================================================
     # __del__
     #===========================================================================
     def __del__(self):
-        self.disconnect()
-    
+        pass
     
     #===========================================================================
     # get_section_cursor_crn
@@ -199,14 +205,13 @@ class ProfQuery(MongoQuery):
         super(ProfQuery, self).__init__()
         self.set_database_name('professors')
         self.set_collection('professors')
-        self.connect()
         
         
     #===========================================================================
     # __del__
     #===========================================================================
     def __del__(self):
-        self.disconnect()
+        pass
     
     
     #===========================================================================

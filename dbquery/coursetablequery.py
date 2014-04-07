@@ -22,8 +22,13 @@ class CourseTableQuery(object):
         Constructor
         '''
         self.course_query = CourseQuery()
+        self.course_query.connect()
         self.set_query(query)
         self.set_table_size(table_size)
+        
+        
+    def __del__(self):
+        self.course_query.disconnect()
         
         
     #===========================================================================
