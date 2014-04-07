@@ -7,6 +7,9 @@ Created on Apr 6, 2014
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
+HOST = 'digitalocean-4.perryhuang.com'
+PORT = 27017
+
 #==========================================================================  
 #
 #==========================================================================
@@ -15,9 +18,9 @@ class MongoQuery(object):
     #==========================================================================  
     #
     #==========================================================================
-    def __init__(self, host, port):
-        self.host = host
-        self.port = port
+    def __init__(self):
+        self.host = HOST
+        self.port = PORT
         self.client = None
         self.db_name = None
         self.collection_name = None
@@ -98,26 +101,31 @@ class MongoQuery(object):
     def get_db_name(self):
         return self.collection_name
     
-    def get_collectionn_name(self):
+    def get_collection_name(self):
         return self.collection_name
     
 #===============================================================================
 # CourseQuery: for querying the course database
 #===============================================================================
 class CourseQuery(MongoQuery):
-    '''
-    classdocs
-    '''
+
 
     #===========================================================================
     # __init__
     #===========================================================================
-    def __init__(self, host, port):
-        super(CourseQuery, self).__init__(host, port)
-        self.connect()
+    def __init__(self):
+        super(CourseQuery, self).__init__()
         self.set_database_name('courses')
         self.set_collection('courses_general')
+        self.connect()
         
+    
+    #===========================================================================
+    # __del__
+    #===========================================================================
+    def __del__(self):
+        self.disconnect()
+    
     
     #===========================================================================
     # get_course_cursor
@@ -137,18 +145,24 @@ class CourseQuery(MongoQuery):
 # SectionQuery
 #===============================================================================
 class SectionQuery(MongoQuery):
-    '''
-    classdocs
-    '''
+
 
     #===========================================================================
     # __init__
     #===========================================================================
-    def __init__(self, host, port):
-        super(SectionQuery, self).__init__(host, port)
-        self.connect()
+    def __init__(self):
+        super(SectionQuery, self).__init__()
         self.set_database_name('courses')
-        self.set_collection('courses_sections')
+        self.set_collection('courses_section')
+        self.connect()
+    
+        
+    #===========================================================================
+    # __del__
+    #===========================================================================
+    def __del__(self):
+        self.disconnect()
+    
     
     #===========================================================================
     # get_section_cursor_crn
@@ -156,32 +170,29 @@ class SectionQuery(MongoQuery):
     def get_section_cursor_crn(self, crn):
         return super(SectionQuery, self).get_cursor({'crn': crn})
     
-    #===========================================================================
-    # get_section_cursor_section_number
-    #===========================================================================
-    def get_section_cursor_section_number(self, section_number):
-        return super(SectionQuery, self).get_cursor({'section_number': section_number})
     
-    
-
 #===============================================================================
 # ProfQuery
 #===============================================================================
 class ProfQuery(MongoQuery):
-    '''
-    classdocs
-    '''
 
 
     #===========================================================================
     # __init__
     #===========================================================================
-    def __init__(self, host, port):
-        super(ProfQuery, self).__init__(host, port)
-        self.connect()
+    def __init__(self):
+        super(ProfQuery, self).__init__()
         self.set_database_name('professors')
         self.set_collection('professors')
+        self.connect()
         
+        
+    #===========================================================================
+    # __del__
+    #===========================================================================
+    def __del__(self):
+        self.disconnect()
+    
     
     #===========================================================================
     # get_prof_cursor

@@ -17,11 +17,11 @@ class CourseTableQuery(object):
     #===========================================================================
     # __init__
     #===========================================================================
-    def __init__(self, host, port, query, table_size):
+    def __init__(self, query, table_size):
         '''
         Constructor
         '''
-        self.course_query = CourseQuery(host, port)
+        self.course_query = CourseQuery()
         self.set_query(query)
         self.set_table_size(table_size)
         
@@ -52,7 +52,7 @@ class CourseTableQuery(object):
     #===========================================================================
     def get_table_page_cursor(self, page_num):
         temp_cursor = self.cursor.clone()
-        start = 1 + self.table_size * (page_num - 1)
+        start = self.table_size * (page_num - 1)
         end = self.table_size * page_num
         return temp_cursor[start:end]
     
