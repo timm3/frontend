@@ -128,6 +128,21 @@ class CourseQuery(MongoQuery):
     
     
     #===========================================================================
+    # get_subject_codes
+    #===========================================================================
+    def get_subject_codes(self):
+        return sorted(self.client[self.db_name][self.collection_name].distinct('code'))
+    
+    
+    def get_course_ids_for_subject(self, subject_code):
+        list = []
+        cursor = self.get_courses_cursor_subject(subject_code)
+        for json in cursor:
+            list.append(json['course_id'])
+        return sorted(list)
+        
+            
+    #===========================================================================
     # get_course_cursor
     #===========================================================================
     def get_course_cursor(self, subject_code, id_num):
