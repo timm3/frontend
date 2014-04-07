@@ -157,12 +157,54 @@ class CourseQuery(MongoQuery):
         return super(CourseQuery, self).get_cursor({'code':subject_code, 'course_id':id_num})
     
     
+    def get_course_JSON(self, subject_code, id_num):
+        return self.get_course_cursor(subject_code, id_num)[0]
+    
+    
     #===========================================================================
     # get_courses_cursor_subject
+    #    credit hours
+    #    gpa
+    #    prof_rating
+        
     #===========================================================================
     def get_courses_cursor_subject(self, subject_code):
         return super(CourseQuery, self).get_cursor({'code':subject_code})
     
+    
+    def search_for_course_cursor(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None):
+        query = {}
+        if subject_code:
+            query['code'] = subject_code
+        if id_num:
+            query['course_id'] = id_num
+        if min_gpa:
+            query['gpa'] = {'$gte': min_gpa}
+        if credit_hours:
+            if isinstance(credit_hours, list):
+                query['credit_hours'] = {'$in': credit_hours}
+            else:
+                query['credit_hours'] = {'$in': [credit_hours]}
+        if min_prof_rating:
+            query['gpa'] = {'$gte': min_prof_rating}
+        return self.get_cursor(query)
+    
+    
+    def search_for_course_JSON_list(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None):
+        cursor = self.search_for_course_cursor(subject_code, id_num, min_gpa, credit_hours, min_prof_rating)
+        JSON_list = []
+        for json in cursor:
+            JSON_list.append(json)
+        return JSON_list
+    
+    
+    def get_credit_hour_list(self):
+        list = self.search_for_course_JSON_list()
+        credit_hour_set = set()
+        for json in list:
+            credit_hour_set.update(json['credit_hours'])
+        return sorted(credit_hour_set, key = lambda x: int(x))
+        
     
 #===============================================================================
 # SectionQuery

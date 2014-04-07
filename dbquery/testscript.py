@@ -27,8 +27,14 @@ if __name__ == '__main__':
     course_query.connect()
     print(course_query.client[course_query.db_name][course_query.collection_name])
     print(sorted(course_query.client[course_query.db_name][course_query.collection_name].distinct('code')))
+    print(course_query.get_course_JSON('CS', '125'))
     print(course_query.get_subject_codes())
     print(course_query.get_course_ids_for_subject('CS'))
-    print(course_query.get_courses_cursor_subject('TURK').count())
-    print(course_query.get_course_ids_all_subjects())
+    #print(course_query.get_course_ids_all_subjects())
+    course_query.disconnect()
+    
+    course_query.connect()
+    print(course_query.search_for_course_cursor(min_gpa = 3)[0])
+    print(course_query.get_credit_hour_list())
+        
     course_query.disconnect()
