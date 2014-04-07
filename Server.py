@@ -1,10 +1,10 @@
 import flask, Professor, flask_login, ManageUserDatabase, ManageProfDatabase, Client
 import hashlib, os, User
 from flask import Flask, request, session, flash, redirect, url_for
-from flask_login import LoginManager
+from flask_login import LoginManager, login_required
 from pymongo import MongoClient
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__, static_folder = 'partials', static_url_path='/partials')
 
 login_manager = LoginManager()
 
@@ -16,7 +16,7 @@ db = client.database
 profCollection = db.profCollection
 userCollection = db.userCollection
 
-login_manager.login_view = "/signin"
+login_manager.login_view = "signin"
 
 @login_manager.user_loader
 def load_user(userid):
@@ -25,6 +25,7 @@ def load_user(userid):
 
 @app.route('/')
 def index():
+    #return "Hello World"
     return app.send_static_file('index.html')
 
 @app.route('/signin', methods=['GET', 'POST'])
@@ -52,7 +53,7 @@ def login():
                 flash("Logged in Successfully.")
                 return redirect(url_for("index"))
         #if it doesn't, fall through to the signin.html page render    
-    return app.send_static_file("/partials/signin.html")
+    return app.send_static_file("partials/signin.html")
 
 @app.route('/signup')
 def signup():
@@ -112,13 +113,13 @@ def signup():
                     hashedAD, randAD = ManageUserDatabase.hashPass(adpassword)
                     
                 if(wantReg):
-                    if(confirmAD):
-                        u = User(username, netid, hashed, email, wantReg, hashedAD, rand, randAD)
+                    if(confirmAD): 
+                        u = User(hashed, hashedAD, rand, randAD, username, netid, email, wantReg)
                     else:
                         flash("Sorry, your AD password and confirmation did not match.")
-                        return app.send_static_file("/partials/signup.html")
-                else:
-                    u = User(username, netid, hashed, email, wantReg, hashedAD, rand, randAD)
+                        return app.send_static_file("partials/signup.html")
+                else: 
+                    u = User(hashed, hashedAD, rand, randAD, username, netid, email, wantReg)
                 
                 #insert user into db, log them in, and redirect to index
                 userCollection.insert(ManageUserDatabase.docFromUser(u))
@@ -129,13 +130,18 @@ def signup():
                 
         else:
             flash("Sorry, part(s) of your credentials is(are) already claimed or in use!")
-            return app.send_static_file("/partials/signup.html")
-    return app.send_static_file("/partials/signup.html")
+            return app.send_static_file("partials/signup.html")
+    return app.send_static_file("partials/signup.html")
 
 
 @app.route('/logout')
-@login_manager.login_required
+@login_required
 def logout():
     login_manager.logout_user()
     flash("Logged out.")
     return redirect(url_for("index"))
+
+SECRET_KEY = 'um9vuq235v90u90235u0902350v023rv00n9g'
+
+if __name__ == '__main__':
+    app.run()
