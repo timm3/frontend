@@ -5,11 +5,10 @@
 	
 		<link type='text/css' rel='stylesheet' href='css/main.css'>
 		
-		<script type='text/javascript' src='//d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v5.0.1.min.js'></script>
-		<script type='text/javascript' src='examples/part1.js'></script>
-		<script type='text/javascript' src='examples/part2.js'></script>
-		<script type='text/javascript' src='examples/courses.js'></script>
-
+		<link type='text/css' rel='stylesheet' href='css/courses_calendar.css'>
+		
+		<script type='text/javascript' src='js/courses_calendar.js'></script>
+		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<meta name="description" content="Automated class registration system.">
@@ -82,32 +81,80 @@
 
 <!-- ======================================================================= -->
 
-		<div id='main_container'>
-			<canvas id='time_table' height='500px' width='800px'>
-			
-			</canvas>
-			<div id='kinetic_container'>
-			
+		<div id='calendar'>
+			<div id='times_column'>
+				<div id='days_label_extension' style="height:23px;"></div>
+				<div class='atime' id='8am'>8 am<br></div>
+				<div class='atime' id='9am'>9 am<br></div>
+				<div class='atime' id='10am'>10 am<br></div>
+				<div class='atime' id='11am'>11 am<br></div>
+				<div class='atime' id='12pm'>12 pm<br></div>
+				<div class='atime' id='1pm'>1 pm<br></div>
+				<div class='atime' id='2pm'>2 pm<br></div>
+				<div class='atime' id='3pm'>3 pm<br></div>
+				<div class='atime' id='4pm'>4 pm<br></div>
+				<div class='atime' id='5pm'>5 pm<br></div>
+				<div class='atime' id='6pm'>6 pm<br></div>
+				<div class='atime' id='7pm'>7 pm<br></div>
+				<div class='atime' id='8pm'>8 pm<br></div>
+				<div class='atime' id='9pm'>9 pm<br></div>
+				<div class='atime' id='10pm'>10 pm<br></div>
+				<div class='atime' id='11pm'>11 pm<br></div>
 			</div>
-			<div id='debugg_view'>
-			
+			<div id='days_column' style="">
+				<div id='days_label'>
+					<div class='aday_label' id='sunday_label' >Sunday</div>
+					<div class='aday_label' id='monday_label' >Monday</div>
+					<div class='aday_label' id='tuesday_label' >Tuesday</div>
+					<div class='aday_label' id='wednesday_label' >Wednesday</div>
+					<div class='aday_label' id='thursday_label' >Thursday</div>
+					<div class='aday_label' id='friday_label' >Friday</div>
+					<div class='aday_label' id='saturday_label' >Saturday</div>
+				</div>
+				
+				<div id='days_times'>
+					<div class='aday_times' id='sunday_times' >
+						
+					</div>
+					<div class='aday_times' id='monday_times' >
+						
+					</div>
+					<div class='aday_times' id='tuesday_times' >
+						
+					</div>
+					<div class='aday_times' id='wednesday_times' >
+						
+					</div>
+					<div class='aday_times' id='thursday_times' >
+						
+					</div>
+					<div class='aday_times' id='friday_times' >
+						
+					</div>
+					<div class='aday_times' id='saturday_times' >
+						
+					</div>
+					<div id='hour_lines' style="position:absolute; width:100%; height:495px; top:0; z-index:5;">
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
+					</div>
+				</div>
 			</div>
-			<script defer='defer'>
-				
-				
-				var o1 = {code: "MATH", subject: "Calc III", crn: "10145", startTime: '01:00 PM', endTime: '02:30 PM', days: 'MWF '};
-				var o2 = {code: "CS", subject: "DAta structures", crn: "30014", startTime: '10:45 AM', endTime: '11:50 AM', days: 'TR'};
-				var o3 = {code: "AAS", subject: "Intro to AAS", crn: "15421", startTime: '08:30 AM', endTime: '08:50 AM', days: 'MWF'};
-				var o4 = {code: "MATH", subject: "Linear Algebra", crn: "55555", startTime: '03:00 PM', endTime: '03:50 PM', days: 'MW'};
-				var o5 = {code: "ENG", subject: "Gen. Engineering", crn: "66566", startTime: '03:00 PM', endTime: '03:50 PM', days: 'MW'};
-				
-				var courses = new Array();
-				courses.push(o1, o2, o3, o4, o5);
-				
-				printAllCourses(courses);
-				drawOnCanvas();
-
-			</script>
 		</div>
+		<button onclick="addCourse('saturday_times')">add a course</button>
 	</body>
 </html>

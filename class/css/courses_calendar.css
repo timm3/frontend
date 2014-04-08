@@ -1,0 +1,101 @@
+body {
+	text-align: center;
+}
+
+#calendar {
+	min-width:800px;
+	max-width:90%;
+	margin: 0 auto;
+	text-align:left;
+	
+}
+
+#times_column {
+	width:50px;
+	float:left;
+}
+
+.atime {
+	height:30px;
+	border-style:dashed none none none;
+	border-width:1px 0px 0px 0px;
+}
+
+#days_column {
+	width:100%;
+	margin-left:50px;
+}
+
+#days_label {
+	margin-left:50px;
+	font-size:0px;
+}
+
+.aday_label {
+	min-width: 14.28%;
+	display: inline-block;
+	vertical-align: top;
+	border-style: solid;
+	border-width: 0px;
+	border-color: black;
+	font-size: 16px;
+}
+
+#days_times {
+	position:relative;
+	height:495px;
+	font-size: 0px;
+}
+
+.aday_times {
+	position:relative;
+	min-width: 14.28%;
+	width: 14%;
+	height:100%;
+	display: inline-block;
+	vertical-align: top;
+	border-style: solid;
+	border-width: 0px;
+	border-color: black;
+	font-size: 16px;
+}
+
+.course_entry {
+	position:absolute;
+	width:100%;
+	background-color:#FF4A4A;
+	z-index:10;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
