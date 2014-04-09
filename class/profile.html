@@ -3,8 +3,6 @@
 	<head>
 		<meta charset="utf-8"/>
 	
-		<link type='text/css' rel='stylesheet' href='css/main.css'>
-		
 		<link type='text/css' rel='stylesheet' href='css/courses_calendar.css'>
 		
 		<script type='text/javascript' src='js/courses_calendar.js'></script>
@@ -83,7 +81,7 @@
 
 		<div id='calendar'>
 			<div id='times_column'>
-				<div id='days_label_extension' style="height:23px;"></div>
+				<div id='days_label_extension' style="height:23px; width:50px;"></div>
 				<div class='atime' id='8am'>8 am<br></div>
 				<div class='atime' id='9am'>9 am<br></div>
 				<div class='atime' id='10am'>10 am<br></div>
@@ -111,50 +109,24 @@
 					<div class='aday_label' id='friday_label' >Friday</div>
 					<div class='aday_label' id='saturday_label' >Saturday</div>
 				</div>
-				
 				<div id='days_times'>
-					<div class='aday_times' id='sunday_times' >
-						
+					<div class='aday_times' id='sunday_times' style="border-style:solid; border-width:0px 1px 0px 1px; border-color:#BFBFBF;">
 					</div>
 					<div class='aday_times' id='monday_times' >
-						
 					</div>
 					<div class='aday_times' id='tuesday_times' >
-						
 					</div>
 					<div class='aday_times' id='wednesday_times' >
-						
 					</div>
 					<div class='aday_times' id='thursday_times' >
-						
 					</div>
 					<div class='aday_times' id='friday_times' >
-						
 					</div>
 					<div class='aday_times' id='saturday_times' >
-						
-					</div>
-					<div id='hour_lines' style="position:absolute; width:100%; height:495px; top:0; z-index:5;">
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
-						<div style="height:30px; border-style:dashed none none none;	border-width:1px 0px 0px 0px; z-index:6;"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<button onclick="addCourse('saturday_times')">add a course</button>
+		<button onclick="addCourse('monday_times')">add a course</button>
 	</body>
 </html>

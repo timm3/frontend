@@ -3,6 +3,7 @@ body {
 }
 
 #calendar {
+	position:relative;
 	min-width:800px;
 	max-width:90%;
 	margin: 0 auto;
@@ -11,23 +12,27 @@ body {
 }
 
 #times_column {
-	width:50px;
+	position:absolute;
+	width:100%;
 	float:left;
 }
 
 .atime {
 	height:30px;
+	width:100%;
 	border-style:dashed none none none;
 	border-width:1px 0px 0px 0px;
 }
 
 #days_column {
 	width:100%;
+	height:100%;
 	margin-left:50px;
+	margin-right:50px;
 }
 
 #days_label {
-	margin-left:50px;
+	margin-right:50px;
 	font-size:0px;
 }
 
@@ -43,7 +48,8 @@ body {
 
 #days_times {
 	position:relative;
-	height:495px;
+	height:480px;
+	margin-right:50px;
 	font-size: 0px;
 }
 
@@ -54,9 +60,9 @@ body {
 	height:100%;
 	display: inline-block;
 	vertical-align: top;
-	border-style: solid;
-	border-width: 0px;
-	border-color: black;
+	border-style:none solid none none;
+	border-width:0px 1px 0px 0px;
+	border-color:#BFBFBF;
 	font-size: 16px;
 }
 
