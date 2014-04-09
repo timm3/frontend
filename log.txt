@@ -1,0 +1,176 @@
+130.126.255.195 - - [09/Apr/2014 07:37:20] "GET /class/profile.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:37:20] "GET /class/css/courses_calendar.css HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:37:34] "GET /lib/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:37:35] "GET /class/js/courses_calendar.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:37:43] "GET /class/profile.html? HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:37:45] "GET /index.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:37:45] "GET /lib/bootstrap/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:30] "GET /index.html HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:30] "GET /lib/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:31] code 404, message File not found
+192.17.11.77 - - [09/Apr/2014 07:39:31] "GET /assets/ico/favicon.ico HTTP/1.1" 404 -
+192.17.11.77 - - [09/Apr/2014 07:39:31] "GET /lib/bootstrap/js/bootstrap.js HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:31] "GET /img/back5.jpg HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:31] "GET /img/back6.jpg HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:31] "GET /img/back7.jpg HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:32] "GET /img/back2.jpg HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:32] "GET /img/back1.jpg HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:32] "GET /lib/bootstrap/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:32] "GET /img/back3.jpg HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:32] "GET /img/logo4.jpg HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:32] "GET /img/logo2.jpg HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:39:32] "GET /img/logo3.png HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:40:05] "GET /partials/signin.html HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:40:05] code 404, message File not found
+192.17.11.77 - - [09/Apr/2014 07:40:05] "GET /favicon.ico HTTP/1.1" 404 -
+192.17.11.77 - - [09/Apr/2014 07:40:05] code 404, message File not found
+192.17.11.77 - - [09/Apr/2014 07:40:05] "GET /favicon.ico HTTP/1.1" 404 -
+192.17.11.77 - - [09/Apr/2014 07:40:08] "GET /class/profile.html HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:40:08] "GET /class/css/courses_calendar.css HTTP/1.1" 200 -
+192.17.11.77 - - [09/Apr/2014 07:40:08] "GET /class/js/courses_calendar.js HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:32] "GET / HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /lib/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /img/back6.jpg HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /img/back7.jpg HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /lib/bootstrap/js/bootstrap.js HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /img/back5.jpg HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /img/back1.jpg HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /img/back2.jpg HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /lib/bootstrap/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:33] "GET /img/back3.jpg HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:34] "GET /img/logo3.png HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:34] "GET /img/logo2.jpg HTTP/1.1" 200 -
+70.194.97.129 - - [09/Apr/2014 07:40:34] "GET /img/logo4.jpg HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:43:53] "GET /partials/404.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:43:53] "GET /img/404.jpg HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:43:53] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:43:53] "GET /favicon.ico HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:45:52] "GET /index_old.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:52] "GET /lib/jquery-1.11.0.min.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:52] "GET /lib/angular/angular.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /lib/angular/angular-route.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /lib/angular/ui-bootstrap-tpls-0.10.0.min.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/app.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/controllers/controllers.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/directives/directives.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/services/services.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/services/ClassPageService.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/controllers/ClassPageCtrl.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/controllers/ClassTableCtrl.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/directives/NavBarDir.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/directives/CarouselDir.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/directives/MarketingDir.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /js/directives/FeaturettesDir.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /partials/NavBar.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /partials/HomePage.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /partials/Carousel.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /partials/Marketing.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /partials/featurettes.html HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /img/back5 HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /img/back6 HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:45:53] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:45:53] "GET /img/back7 HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:46:03] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:46:03] "GET /partials/featurettes.html HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:46:06] "GET /class/profile.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:46:06] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:46:06] "GET /img/back6 HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:46:06] "GET /class/css/courses_calendar.css HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:46:06] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:46:06] "GET /img/back7 HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:46:06] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:46:06] "GET /img/back5 HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:46:06] "GET /class/js/courses_calendar.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:46:07] "GET /index.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:46:19] "GET /index-async.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:46:19] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:46:19] "GET /js/services.js HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:46:19] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:46:19] "GET /js/controllers.js HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:46:19] "GET /css/app.css HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:46:19] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:46:19] "GET /js/filters.js HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:46:19] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:46:19] "GET /js/directives.js HTTP/1.1" 404 -
+200.98.69.71 - - [09/Apr/2014 07:46:22] "HEAD / HTTP/1.0" 200 -
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python2.7/SocketServer.py", line 649, in __init__
+    self.handle()
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 310, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python2.7/socket.py", line 476, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 104] Connection reset by peer
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python2.7/SocketServer.py", line 649, in __init__
+    self.handle()
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 310, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python2.7/socket.py", line 476, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 104] Connection reset by peer
+130.126.255.195 - - [09/Apr/2014 07:47:06] "GET /index-async.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:47:06] "GET /css/app.css HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:47:06] "GET /js/app.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:47:06] "GET /lib/angular/angular.js HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:47:07] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:47:07] "GET /js/controllers.js HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:47:07] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:47:07] "GET /js/services.js HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:47:07] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:47:07] "GET /js/filters.js HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:47:07] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:47:07] "GET /js/directives.js HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:47:36] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:47:36] "GET /partials/partials/about.html HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:48:04] "GET /partials/ClassPage.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:48:04] "GET /css/classpage.css HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:48:24] "GET /partials/ClassTablePage.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:48:26] "GET /partials/ClassTablePage.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:48:28] "GET /partials/ClassTablePage.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:50:54] "GET /partials/ClassTablePage.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:51:04] "GET /partials/NavBar.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:51:04] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:51:04] "GET /partials/lib/bootstrap/css/bootstrap.css HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:51:46] "GET /partials/NavBar.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:51:46] "GET /lib/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:51:46] "GET /lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:51:55] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:51:55] "GET /partials/index.html HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:51:59] "GET /lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:52:14] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:52:14] "GET /partials/index.html HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:52:16] code 404, message File not found
+130.126.255.195 - - [09/Apr/2014 07:52:16] "GET /partials/index.html HTTP/1.1" 404 -
+130.126.255.195 - - [09/Apr/2014 07:52:20] "GET /lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:52:56] "GET /partials/NavBar.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:52:56] "GET /lib/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:52:56] "GET /lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:53:05] "GET /index.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:53:08] "GET /lib/bootstrap/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:53:08] "GET /lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:53:11] "GET /lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:54:41] "GET /partials/Marketing.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:55:01] "GET /partials/Marketing.html HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:55:01] "GET /img/back1.jpg HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:55:01] "GET /img/back2.jpg HTTP/1.1" 200 -
+130.126.255.195 - - [09/Apr/2014 07:55:01] "GET /img/back3.jpg HTTP/1.1" 200 -
