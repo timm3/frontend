@@ -13,7 +13,11 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         self.ctq = CourseTableQuery({}, 20)
+        self.ctq.connect()
         self.ctq.set_cursor(self.ctq.course_query.get_courses_cursor_subject(subject_code))
+        
+    def tearDown(self):
+        self.ctq.disconnect()
 
     def test1(self):
         jsonlist = self.ctq.get_table_page_JSON_list(1)
@@ -24,7 +28,9 @@ class Test(unittest.TestCase):
     def test2(self):
         cursor1 = self.ctq.get_table_page_cursor(1)
         cq = CourseQuery()
+        cq.connect()
         cursor2 = cq.get_courses_cursor_subject(subject_code)
+        cq.disconnect()
         list1 = []
         for x in cursor1:
             list1.append(x)

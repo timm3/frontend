@@ -26,7 +26,9 @@ if __name__ == '__main__':
     prof_query.disconnect()
     
     table_query = CourseTableQuery({}, 20)
+    table_query.connect()
     print(table_query.get_table_page_JSON_list(1))
+    table_query.disconnect()
     
     course_query = CourseQuery()
     course_query.connect()
@@ -43,3 +45,23 @@ if __name__ == '__main__':
     print(course_query.get_credit_hour_list())
         
     course_query.disconnect()
+    
+    query = CourseTableQuery()
+    query.connect()
+    retVal = query.get_table_page_JSON_list(1)
+    retVal = query.get_table_page_JSON_list(1000)
+    query.disconnect()
+    print(retVal)
+    
+    cq = CourseQuery()
+    cq.connect()
+    
+    print(cq.get_cursor({'credit_hours':{'$in': [3]}}).count())
+    print(cq.get_cursor({'credit_hours':{'$in': ['3']}}).count())
+    print(cq.get_cursor({'credit_hours':{'$in': [3, '3']}}).count())
+    print(cq.get_cursor({'credit_hours':{'$in': ['3']}}).count()+cq.get_cursor({'credit_hours':{'$in': [3]}}).count())
+    
+    print(cq.get_course_cursor('CS', '125')[0])
+    print(cq.get_course_cursor('CS', '125')[1])
+    print(cq.get_course_cursor('CS', '125')[2])
+    cq.disconnect()
