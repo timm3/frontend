@@ -87,8 +87,8 @@ class MongoQuery(object):
         
         self_str = "host: " + str(self.host)
         self_str += " port: " + str(self.port)
-        self_str += " database: " + str(self.db)
-        self_str += " collection: " + str(self.collection)
+        self_str += " database: " + str(self.db_name)
+        self_str += " collection: " + str(self.collection_name)
         
         return self_str
     

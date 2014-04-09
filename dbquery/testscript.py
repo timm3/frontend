@@ -26,7 +26,9 @@ if __name__ == '__main__':
     prof_query.disconnect()
     
     table_query = CourseTableQuery({}, 20)
+    table_query.connect()
     print(table_query.get_table_page_JSON_list(1))
+    table_query.disconnect()
     
     course_query = CourseQuery()
     course_query.connect()
@@ -43,3 +45,9 @@ if __name__ == '__main__':
     print(course_query.get_credit_hour_list())
         
     course_query.disconnect()
+    
+    query = CourseTableQuery()
+    query.connect()
+    retVal = query.get_table_page_JSON_list(1)
+    query.disconnect()
+    print(retVal)
