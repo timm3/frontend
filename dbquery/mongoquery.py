@@ -87,7 +87,7 @@ class MongoQuery(object):
         
         self_str = "host: " + str(self.host)
         self_str += " port: " + str(self.port)
-        self_str += " databse: " + str(self.db)
+        self_str += " database: " + str(self.db)
         self_str += " collection: " + str(self.collection)
         
         return self_str
@@ -172,6 +172,9 @@ class CourseQuery(MongoQuery):
         return super(CourseQuery, self).get_cursor({'code':subject_code})
     
     
+
+
+
     def search_for_course_cursor(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None):
         query = {}
         if subject_code:
@@ -181,13 +184,34 @@ class CourseQuery(MongoQuery):
         if min_gpa:
             query['gpa'] = {'$gte': min_gpa}
         if credit_hours:
-            if isinstance(credit_hours, list):
-                query['credit_hours'] = {'$in': credit_hours}
-            else:
-                query['credit_hours'] = {'$in': [credit_hours]}
+            query['credit_hours'] = self.process_credit_hours_query(credit_hours)
         if min_prof_rating:
             query['gpa'] = {'$gte': min_prof_rating}
         return self.get_cursor(query)
+    
+    
+    #===========================================================================
+    # process_credit_hours_query
+    #    Note: Currently assumes credit_hours list stored in database may be 
+    #          int or string. Should be changed once database is correctly
+    #          formatted.
+    #===========================================================================
+    def process_credit_hours_query(self, credit_hours):
+        if isinstance(credit_hours, list):
+            if isinstance(credit_hours[0], str):
+                credit_hours_query = []
+                for string in credit_hours:
+                    credit_hours_query.extend([string, int(string)])
+                return {'$in':credit_hours_query}
+            else:
+                credit_hours_query = []
+                for num in credit_hours:
+                    credit_hours_query.extend([num, str(num)])
+                return {'$in':credit_hours_query}
+        elif isinstance(credit_hours, str):
+            return {'$in':[credit_hours, int(credit_hours)]}
+        else:
+            return {'$in':[credit_hours, str(credit_hours)]}
     
     
     def search_for_course_JSON_list(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None):

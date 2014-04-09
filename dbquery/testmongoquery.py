@@ -68,13 +68,13 @@ class Test(unittest.TestCase):
         credit_hour = 4
         cursor = self.cq.search_for_course_cursor(credit_hours = credit_hour)
         for json in cursor:
-            self.assertIn(credit_hour, json['credit_hours'])
+            self.assertIsNotNone(set([credit_hour, str(credit_hour)]).intersection(set(json['credit_hours'])))
         self.cq.disconnect()
             
     def testSearchCreditHours(self):
         self.cq = CourseQuery()
         self.cq.connect()
-        credit_hours = [4, 6]
+        credit_hours = [4, 6, '4', '6']
         credit_hours_set = set(credit_hours)
         cursor = self.cq.search_for_course_cursor(credit_hours = credit_hours)
         for json in cursor:
