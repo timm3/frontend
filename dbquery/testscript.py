@@ -52,3 +52,16 @@ if __name__ == '__main__':
     retVal = query.get_table_page_JSON_list(1000)
     query.disconnect()
     print(retVal)
+    
+    cq = CourseQuery()
+    cq.connect()
+    
+    print(cq.get_cursor({'credit_hours':{'$in': [3]}}).count())
+    print(cq.get_cursor({'credit_hours':{'$in': ['3']}}).count())
+    print(cq.get_cursor({'credit_hours':{'$in': [3, '3']}}).count())
+    print(cq.get_cursor({'credit_hours':{'$in': ['3']}}).count()+cq.get_cursor({'credit_hours':{'$in': [3]}}).count())
+    
+    print(cq.get_course_cursor('CS', '125')[0])
+    print(cq.get_course_cursor('CS', '125')[1])
+    print(cq.get_course_cursor('CS', '125')[2])
+    cq.disconnect()

@@ -163,18 +163,17 @@ class CourseQuery(MongoQuery):
     
     #===========================================================================
     # get_courses_cursor_subject
+    #===========================================================================
+    def get_courses_cursor_subject(self, subject_code):
+        return super(CourseQuery, self).get_cursor({'code':subject_code.upper()})
+    
+    
+    #===========================================================================
+    # search_for_course_cursor
     #    credit hours
     #    gpa
     #    prof_rating
-        
     #===========================================================================
-    def get_courses_cursor_subject(self, subject_code):
-        return super(CourseQuery, self).get_cursor({'code':subject_code})
-    
-    
-
-
-
     def search_for_course_cursor(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None):
         query = {}
         if subject_code:
