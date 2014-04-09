@@ -49,5 +49,6 @@ if __name__ == '__main__':
     query = CourseTableQuery()
     query.connect()
     retVal = query.get_table_page_JSON_list(1)
+    retVal = query.get_table_page_JSON_list(1000)
     query.disconnect()
     print(retVal)
