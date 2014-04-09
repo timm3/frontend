@@ -225,8 +225,13 @@ class CourseQuery(MongoQuery):
         list = self.search_for_course_JSON_list()
         credit_hour_set = set()
         for json in list:
-            credit_hour_set.update(json['credit_hours'])
-        return sorted(credit_hour_set, key = lambda x: int(x))
+            if json:
+                credit_hour_set.update(json['credit_hours'])
+        if None in credit_hour_set:
+            credit_hour_set.remove(None)
+        if '0' in credit_hour_set:
+            credit_hour_set.remove('0')
+        return sorted(credit_hour_set)
         
     
 #===============================================================================
