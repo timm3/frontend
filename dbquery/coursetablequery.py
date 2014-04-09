@@ -22,7 +22,6 @@ class CourseTableQuery(object):
         Constructor
         '''
         self.course_query = CourseQuery()
-        self.course_query.connect()
         self.set_query(query)
         self.set_table_size(table_size)
         
@@ -32,17 +31,33 @@ class CourseTableQuery(object):
         
         
     #===========================================================================
+    # connect
+    #===========================================================================
+    def connect(self):
+        self.course_query.connect()
+        
+        
+    #===========================================================================
+    # disconnect
+    #===========================================================================
+    def disconnect(self):
+        self.course_query.disconnect()
+        
+        
+    #===========================================================================
     # set_cursor
+    #    Not advised, but can be used in place of set_query
     #===========================================================================
     def set_cursor(self, cursor):
         self.cursor = cursor
+        self.query = None
         
         
     #===========================================================================
     # set_query
     #===========================================================================
     def set_query(self, query):
-        self.cursor = self.course_query.get_cursor(query)
+        self.query = query
         
         
     #===========================================================================
@@ -56,7 +71,11 @@ class CourseTableQuery(object):
     # get_table_page_cursor
     #===========================================================================
     def get_table_page_cursor(self, page_num):
-        temp_cursor = self.cursor.clone()
+        temp_cursor = None
+        if query:
+            temp_cursor = self.course_query.get_cursor(query)
+        else:
+            temp_cursor = self.cursor.clone()
         start = self.table_size * (page_num - 1)
         end = self.table_size * page_num
         return temp_cursor[start:end]

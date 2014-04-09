@@ -44,7 +44,42 @@ class Test(unittest.TestCase):
         self.assertEqual(cursor1[0], cursor2[0])
         self.sq.disconnect()
         
-
+    def testSearchGPA(self):
+        self.cq = CourseQuery()
+        self.cq.connect()
+        min_gpa = 3
+        cursor = self.cq.search_for_course_cursor(min_gpa = min_gpa)
+        for json in cursor:
+            self.assertGreaterEqual(json['gpa'], min_gpa)
+        self.cq.disconnect()
+            
+    def testSearchProfRating(self):
+        self.cq = CourseQuery()
+        self.cq.connect()
+        prof_rating = 4.5
+        cursor = self.cq.search_for_course_cursor(min_prof_rating = prof_rating)
+        for json in cursor:
+            self.assertGreaterEqual(json['prof_rating'], min_prof_rating)
+        self.cq.disconnect()
+            
+    def testSearchCreditHour(self):
+        self.cq = CourseQuery()
+        self.cq.connect()
+        credit_hour = 4
+        cursor = self.cq.search_for_course_cursor(credit_hours = credit_hour)
+        for json in cursor:
+            self.assertIsNotNone(set([credit_hour, str(credit_hour)]).intersection(set(json['credit_hours'])))
+        self.cq.disconnect()
+            
+    def testSearchCreditHours(self):
+        self.cq = CourseQuery()
+        self.cq.connect()
+        credit_hours = [4, 6, '4', '6']
+        credit_hours_set = set(credit_hours)
+        cursor = self.cq.search_for_course_cursor(credit_hours = credit_hours)
+        for json in cursor:
+            self.assertIsNotNone(credit_hours_set.intersection(set(json['credit_hours'])))
+        self.cq.disconnect()
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

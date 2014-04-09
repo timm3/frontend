@@ -20,6 +20,11 @@ if __name__ == '__main__':
     print(section_query.get_cursor({})[0])
     section_query.disconnect()
     
+    prof_query = ProfQuery()
+    prof_query.connect()
+    print(prof_query.get_cursor({})[0])
+    prof_query.disconnect()
+    
     table_query = CourseTableQuery({}, 20)
     print(table_query.get_table_page_JSON_list(1))
     
