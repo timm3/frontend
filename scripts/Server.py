@@ -1,5 +1,5 @@
 import flask, Professor, flask_login, ManageUserDatabase, ManageProfDatabase, Client
-import hashlib, os, User
+import hashlib, os, User, re
 from flask import Flask, request, session, flash, redirect, url_for
 from flask_login import LoginManager, login_required
 from pymongo import MongoClient
@@ -71,11 +71,14 @@ def signup():
     if request.method == 'POST':
         unique = True #logic control : credential uniqueness
         wantReg = False #logic control : regNow to be enabled
+        emailValid = False #logic control : email is valid address
         confirmPass = False
         confirmAD = False
         
         #===============================================================================
-        # check availability of requested username, email, and netid for account
+        # check availability and validity of requested username, email, and 
+        # netid for account
+        # regex sourced from http://www.regular-expressions.info/email.html on 4.8.14
         #===============================================================================
         username = request.form['name']
         cursor = userCollection.find( { "name": username })
@@ -86,6 +89,8 @@ def signup():
         cursor = userCollection.find( { "email": email })
         if(cursor[0]):
             unique = False
+        emailRegex = re.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b")
+        emailValid = emailRegex.match(email)
         
         wantReg = request.form.get('netid')
         if(wantReg == None):
@@ -97,12 +102,12 @@ def signup():
             netid = request.form['netid']
             cursor = userCollection.find( { "netid": netid })
             if(cursor[0]):
-                #dang, it exists! let the user know they need to retry
                 unique = False
+                
         #===============================================================================
         # if the user's requested credentials are unique enough, make them an account
         #===============================================================================
-        if(unique):        
+        if(unique & emailValid):        
             password = request.form['inputPassword3']
             conf_pass = request.form['confirmPassword3']
             if(password == conf_pass):
@@ -113,6 +118,7 @@ def signup():
                 conf_ad = request.form['confirmADPassword3']
                 if(adpassword == conf_ad):
                     confirmAD = True
+            
             #===============================================================================
             # convert password and adpassword to hashed values and then continue
             #===============================================================================
@@ -137,9 +143,15 @@ def signup():
                 userCollection.insert(ManageUserDatabase.docFromUser(u))
                 login_manager.login_user(load_user(username.unicode()))
                 return redirect(url_for("index"))
-                
-        else:
-            flash("Sorry, part(s) of your credentials is(are) already claimed or in use!")
+        
+        #===============================================================================
+        # If supplied values were deemed non-satisfactory, inform user
+        #=============================================================================== 
+        else: 
+            if(emailValid != True):
+                flash("Sorry, the supplied email address is invalid!")
+            else:
+                flash("Sorry, part(s) of your credentials is(are) already claimed or in use!")
             return redirect(url_for("signup"))
         
     return app.send_static_file("/partials/signup.html")

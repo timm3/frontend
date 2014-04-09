@@ -4,6 +4,7 @@
 		<meta charset="utf-8"/>
 	
 		<link type='text/css' rel='stylesheet' href='css/courses_calendar.css'>
+		<link type='text/css' rel='stylesheet' href='css/search_result.css'>
 		
 		<script type='text/javascript' src='js/courses_calendar.js'></script>
 		
@@ -78,6 +79,71 @@
   </nav>
 
 <!-- ======================================================================= -->
+		<div id='container_search_result'>
+			<table id='search_result'>
+				<tr class='title_row'>
+					<td><b>CODE</b></td>
+					<td><b>ID</b></td>
+					<td><b>SUBJECT</b></td>
+					<td><b>CRN</b></td>
+					<td><b>START TIME</b></td>
+					<td><b>END TIME</b></td>
+					<td><b>DAYS</b></td>
+				</tr>
+				<tr>
+					<td>MATH</td>
+					<td>241</td>
+					<td>Calculus III</td>
+					<td>10145</td>
+					<td>01:00 AM</td>
+					<td>01:50 AM</td>
+					<td>MWF</td>
+				</tr>
+				<tr>
+					<td>PHYS</td>
+					<td>211</td>
+					<td>Classical Mechanics</td>
+					<td>31254</td>
+					<td>09:00 AM</td>
+					<td>10:50 AM</td>
+					<td>TR</td>
+				</tr>
+				<tr>
+					<td>CS</td>
+					<td>173</td>
+					<td>Discrete Structures</td>
+					<td>33300</td>
+					<td>02:00 PM</td>
+					<td>02:50 PM</td>
+					<td>MWF</td>
+				</tr>
+				<tr>
+					<td>BB</td>
+					<td>101</td>
+					<td>Cooking Meth</td>
+					<td>10001</td>
+					<td>10:00 PM</td>
+					<td>11:50 PM</td>
+					<td>SU</td>
+				</tr>
+				<tr>
+					<td>AST</td>
+					<td>599</td>
+					<td>Reading your grades from stars</td>
+					<td>13571</td>
+					<td>09:00 PM</td>
+					<td>09:50 PM</td>
+					<td>U</td>
+				</tr>
+			</table>
+			<div id='add_buttons'>
+				<button class='add_button' onclick='addToCalendar(0)'>add</button>
+				<button class='add_button' onclick='addToCalendar(1)'>add</button>
+				<button class='add_button' onclick='addToCalendar(2)'>add</button>
+				<button class='add_button' onclick='addToCalendar(3)'>add</button>
+				<button class='add_button' onclick='addToCalendar(4)'>add</button>
+			</div>
+		</div>
 
 		<div id='calendar'>
 			<div id='times_column'>

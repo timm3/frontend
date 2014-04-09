@@ -38,6 +38,27 @@ function createCourse(courseInfo, parentNode)
 	return course;
 }
 
+function addToCalendar(rowNumber)
+{
+	var row = getRow(rowNumber);
+	
+}
+
+function getRow(rowNubmer)
+{
+	var table = document.getElementById("search_result");
+	
+	for (var i = 1, row; row = table.rows[i]; i++) {
+	   //iterate through rows
+	   if( i == rowNumber )
+	   {
+		   return row;
+	   }
+	}
+	
+	return null;
+}
+
 /**
  * This function checks if the time string is in the correct format. 
  * Correct format: 'HH:MM AM' or 'HH:MM PM'.
@@ -141,12 +162,80 @@ function yCoordFromHour(time)
 	return yCoordinate;
 }
 
+/**
+ * This function matches a day token with a div id in the calendar where 
+ * a course with given token has to be inserted.
+ * @param dayTok string character token representation of a day
+ * @returns null if no match is found, string name of div id on match
+ */
+function dayTokenToDayTimesId(dayTok)
+{
+	var aDayTimesIds = ['sunday_times', 'monday_times', 'tuesday_times', 'wednesday_times', 'thursday_times', 'friday_times', 'saturday_times'];
+	var tokens = ['U', 'M', 'T', 'W', 'R', 'F', 'S'];
+	var divId = null;
+	
+	for( var i = 0; i < aDayTimesIds.length; i++ )
+	{
+		if( tokens[i] === dayTok )
+		{
+			divId = aDayTimesIds[i];
+			break;
+		}
+	}
+	
+	return divId;
+}
 
+/**
+ * This function gets an array of div IDs where a course will be placed.
+ * @param days string representation of days in form of one letter for each day of the week 'UMTWRFS'
+ * @returns {Array} of div IDs as strings
+ */
+function dayTokenStringToDaysTimesIds(days)
+{
+	var tokDays = days.split('');
+	var dayColumnsIds = new Array();
+	
+	for( var i = 0; i < tokDays.length; i++	)
+	{
+		var dayDivId = dayTokenToDayTimesId(tokDays[i]);
+		if( dayDivId != null )
+		{
+			dayColumnsIds.push(dayDivId);
+		}
+	}
+	
+	return dayColumnsIds;
+}
 
-
-
-
-
+/**
+ * This function calculates height in pixels of a course box.
+ * Input start and end times must be within allowed time range by the calendar.
+ * @param startTime string representation of course start time
+ * @param endTime string representation of course end time
+ * @returns {Number} integer height of the box in pixels
+ */
+function getCourseBoxHeight(startTime, endTime)
+{
+	var boxWidth = -1;
+	
+	var startCoord = yCoordFromHour(startTime);
+	var endCoord = yCoordFromHour(endTime);
+	
+	if( startCoord < 0 || endCoord < 0 )
+	{
+		return -1;
+	}
+	
+	boxWidth = endCoord - startCoord;
+	
+	if( boxWidth < 0 )
+	{
+		return -1;
+	}
+	
+	return boxWidth;
+}
 
 
 
