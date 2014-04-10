@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <script src="http://maps.google.com/maps/api/js?sensor=false"
+          type="text/javascript"></script>
+</head>
+<body>
+  <div id="map" style="width: 750px; height: 380px;"></div>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+  <script type="text/javascript">
+
+    var locations = [
+      ['class 1', 40.109379, -88.227205],
+      ['class 2', 40.11257648743, -88.259052],
+      ['class 3', 40.121212121212, -88.157507],
+      ['class 4', 40.12120010128657071, -88.28747820854187],
+      ['class 5', 40.05999999999, -88.259302]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 11,
+      center: new google.maps.LatLng(40.1130, -88.2612),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
+</html>
