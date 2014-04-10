@@ -1,17 +1,30 @@
 appServices.factory("ClassDetails", function($http){
 	return{
 		getData: function(){
-			console.log("called getData()");
-			$http({
-			    url: "/tmp", 
-			    method: "GET",
-			    params: {user_id: 2}
-			 }).success(function(data, status, headers, config){
-					console.log("got data");
-					console.log("DATA:" + data);
-					console.log(config.params);
+			// console.log("called getData()");
+			$http.get('/todoRetrieve')
+				.success(function(data, status, headers, config){
+					if(data.success){
+						console.log(data);
+					}
+					else{
+						console.log("Retrieval failed");
+					}
+				})
+				.error(function(data, status, headers, config){
+					console.log("error func: retrieval failed");
 				});
 
+		},
+		postData: function(){
+			// console.log("called postData()");
+			// $http('/todoAdd', {
+			// 	item:"idk if this can be used"
+			// }).success(function(data, status, headers, config){
+			// 		if(data.success){
+
+			// 		}
+			// 	});
 		},
 		examplePost: function(){
 			console.log("post called");
