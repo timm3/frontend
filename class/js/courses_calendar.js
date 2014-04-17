@@ -29,7 +29,7 @@ function createCourse(courseInfo, parentNode)
 	button.setAttribute('title', "Remove course " + courseInfo.subject + " that is on " + courseInfo.days + ".");
 	button.innerHTML = '-';
 	
-	button.onclick = function(){	   
+	button.onclick = function() {	   
 	    parentNode.removeChild(course);
 	    
 	    return true;
@@ -38,26 +38,72 @@ function createCourse(courseInfo, parentNode)
 	return course;
 }
 
-function addToCalendar(rowNumber)
-{
-	var row = getRow(rowNumber);
-	
-}
 
-function getRow(rowNubmer)
+
+function creteCourseDiv(courseInfo)
 {
-	var table = document.getElementById("search_result");
+	var parents = dayTokenStringToDaysTimesIds(courseInfo.days);
+	var children = new Array();
 	
-	for (var i = 1, row; row = table.rows[i]; i++) {
-	   //iterate through rows
-	   if( i == rowNumber )
-	   {
-		   return row;
-	   }
+	for( var i = 0; i < parents.length; i++ )
+	{
+		// create div for the course
+		var course = document.createElement('div');
+		var courseId = "course_" + courseInfo.crn + "_" + parents[ i ];
+		course.setAttribute('id', courseId);
+		course.className = "course_entry";
+		course.style.height = getCourseBoxHeight(courseInfo.startTime, courseInfo.endTime);
+		
+		course.style.top = yCoordFromHour(courseInfo.startTime).toString() + "px";
+		console.log(toString(yCoordFromHour(courseInfo.startTime)) + "px");
+		
+		course.innerHTML = courseInfo.subject;
+		
+		children.push(course);
 	}
 	
-	return null;
+	for( var i = 0; i < children.length; i++ )
+	{
+		// create remove button for the course
+		var button = document.createElement('button');
+		button.setAttribute('type', 'button');
+		button.setAttribute('value', 'remove course ' + courseInfo.crn);
+		button.setAttribute('title', "Remove course " + courseInfo.subject + " that is on " + courseInfo.days + ".");
+		button.innerHTML = '-';
+		
+		button.onclick = function() {	   
+			var parentsIds = dayTokenStringToDaysTimesIds(courseInfo.days);
+			for( var i = 0; i < parentsIds.length; i++)
+			{
+				var parent = document.getElementById(parentsIds[ i ]);
+				parent.removeChild(children[ i ]);
+				console.log("remove " + i);
+			}
+	    
+			return true;
+		};
+		
+		children[ i ].appendChild(button);
+	}
+	
+	return children;
 }
+
+
+function addToCalendar(courseInfo)
+{
+	var children = creteCourseDiv(courseInfo);
+	
+	var parentsIds = dayTokenStringToDaysTimesIds(courseInfo.days);
+	for( var i = 0; i < parentsIds.length; i++)
+	{
+		var parent = document.getElementById(parentsIds[ i ]);
+		parent.appendChild(children[ i ]);
+	}
+	
+	return true;
+}
+
 
 /**
  * This function checks if the time string is in the correct format. 

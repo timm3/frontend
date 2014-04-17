@@ -69,7 +69,8 @@ body {
 .course_entry {
 	position:absolute;
 	width:100%;
-	background-color:#FF4A4A;
+	background-color:rgba(61,0,122,0.5);
+	
 	z-index:10;
 }
 
