@@ -143,18 +143,29 @@ class CourseQuery(MongoQuery):
             list.append(json['course_id'])
         return sorted(list)
     
+    
     def get_course_ids_all_subjects(self):
         dict = {}
         for subject_code in self.get_subject_codes():
             dict[subject_code] = self.get_course_ids_for_subject(subject_code)
         return dict
-        
+    
+    
+    def get_course_ids_and_names_all_subjects(self):
+        dict = self.get_course_ids_all_subjects()
+        for subject_code in dict.keys():
+            new_list = []
+            for id_num in dict[subject_code]:
+                title = self.get_course_JSON(subject_code, id_num)['title']
+                new_list.append((id_num, title))
+            dict[subject_code] = new_list
+        return dict
             
     #===========================================================================
     # get_course_cursor
     #===========================================================================
     def get_course_cursor(self, subject_code, id_num):
-        return super(CourseQuery, self).get_cursor({'code':subject_code, 'course_id':id_num})
+        return super(CourseQuery, self).get_cursor({'code':subject_code.upper(), 'course_id':id_num})
     
     
     def get_course_JSON(self, subject_code, id_num):
