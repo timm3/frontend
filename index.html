@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="RegNow">
+<head>
+  <meta charset="utf-8">
+  <title>RegNow: Registration Made Easy</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Automated class registration system.">
+
+  <!-- library files -->
+  <script src="static/lib/jquery-1.11.0.min.js"></script>
+  <script src="static/lib/jquery-ui-1.10.4/jquery-ui-1.10.4.min.js"></script>
+  <script src="static/lib/angular/angular.js"></script>
+  <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="static/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="static/lib/angular/angular-route.js"></script>
+  <script src="static/lib/angular/ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script src="static/lib/angular/calendar.js"></script>
+  <script src="static/lib/fullcalendar/fullcalendar.js"></script>
+  <script src="static/lib/angular/calendar.js"></script>
+
+
+  <!-- local css files -->
+  <link href='static/lib/fullcalendar/fullcalendar.css' rel='stylesheet'>
+  <link href='static/css/courses_calendar.css' rel='stylesheet'>
+  <link href='static/css/search_result.css' rel='stylesheet'>
+
+  <!-- local angularjs files -->
+  <script src="static/js/app.js"></script>
+  <script src="static/js/controllers/controllers.js"></script>
+  <script src="static/js/directives/directives.js"></script>
+  <script src="static/js/services/services.js"></script>
+  <script src="static/js/services/ClassPageService.js"></script>
+  <script src="static/js/courses_calendar.js"></script>
+  <script src="static/js/controllers/ClassPageCtrl.js"></script>
+  <script src="static/js/controllers/CalendarCtrl.js"></script>
+  <script src="static/js/controllers/ClassTableCtrl.js"></script>
+  <script src="static/js/directives/NavBarDir.js"></script>
+  <script src="static/js/directives/CarouselDir.js"></script>
+  <script src="static/js/directives/MarketingDir.js"></script>
+  <script src="static/js/directives/FeaturettesDir.js"></script>
+  <script src="static/js/directives/CalendarDir.js"></script>
+</head>
+<body>
+<!-- 
+  <navbar></navbar>
+
+  <div class="generic" ng-view></div> -->
+{% block content %}
+{% endblock content %}
+ 
+</body>
+</html>

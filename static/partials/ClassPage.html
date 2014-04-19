@@ -1,0 +1,40 @@
+
+    <div>
+      {{courseNumbers.classTitle}}
+      <div class="class_identifier">
+        <h1>{{courseNumbers.subject}} - {{courseNumbers.course_id}} - {{courseNumbers.crns[0]}}</h1>
+      </div>
+      <br/>
+      <div class="class_details">
+        <table width="45%" height="30%">
+          <th class="fifteen-h" colspan="2">{{courseNumbers.title}}</th>
+          <tr class="fifteen-h">
+            <td class="text-right twenty-w">Professor: </td>
+            <td class="text-left eighty-w">{{courseNumbers.professor}}</td>
+          </tr>
+           <tr class="ten-h">
+            <td class="text-right twenty-w">Credit Hours: </td>
+            <td class="text-left eighty-w">{{courseNumbers.credit_hours[0]}} / 5.0</td>
+          </tr>
+          <tr class="ten-h">
+            <td class="text-right twenty-w">Rating: </td>
+            <td class="text-left eighty-w">{{courseNumbers.rating}} / 5.0</td>
+          </tr>
+          <tr class="fourty-five-h">
+            <td class="text-right twenty-w">Description: </td>
+            <td class="text-left eighty-w">{{courseNumbers.description}}</td>
+          </tr>
+          <tr class="fourty-five-h">
+            <td class="text-right twenty-w">Comments: </td>
+            <td class="text-left eighty-w">{{courseNumbers.comments}}</td>
+          </tr>
+          <tr class="five-h classPage_button_options" >
+            <td class="text-right hundred-w" colspan="2">
+              <button class="glyphicon glyphicon-ok"onClick=""> Add</button>
+              <!--<button class="glyphicon glyphicon-remove" onClick=""> Ban</button> -->
+              <button class="glyphicon glyphicon-list-alt"onClick=""> Leave Review</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>

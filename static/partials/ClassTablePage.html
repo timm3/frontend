@@ -1,0 +1,153 @@
+<style>
+	.changeWindowSize
+	{
+	  height: 400px;
+	  /*display: inline;*/
+	  overflow: auto;
+	}
+	.deletable-box-thing{
+		border:1px solid #ccc; 
+		border-radius:4px;
+		padding:6px 12px;
+	}
+</style>
+<script type="text/javascript">
+	console.log($(document).scrollTop());
+	$(document).ready(function(){
+	    var height = $(window).height();
+	    $(".changeWindowSize").css("height", height-100);
+	});
+</script>
+<div id="classTable">
+<h2 id="test"></h2>
+<h2 style="text-align:center;">UIUC Courses</h2>
+
+<div class="container-fluid" >
+
+	<!-- search options -->
+	<div class="col-xs-6 col-sm-3" id="filterOptions">
+		<h4 class="text-left">Filter Classes:</h4>		
+		<form class="form-horizontal" name="filter" novalidate>
+			<!-- Minimum gpa  -->
+
+			<div class="form-group" ng-class="{'has-error' : filter.gpa.$invalid}">
+				<label class="col-sm-3 control-label">GPA:</label>
+				<div class="col-sm-9">
+					<input type="number" name="gpa" class="form-control" ng-model="searchOptions.minGpa" min="0" max="4"  placeholder="Minimum GPA">
+				</div>
+			 </div>
+
+			 <!-- Minimum professor rating from rate my professor -->
+			 <div class="form-group" ng-class="{'has-error' : filter.profRating.$invalid}">
+				<label class="col-sm-3 control-label">Professor Rating:</label>
+				<div class="col-sm-9">
+					<input type="number" name="profRating" ng-model="searchOptions.minProfRating" class="form-control" min="0" max="5" placeholder="Minimum Professor rating">
+				</div>
+			 </div>
+
+			 <!-- Search for specified credit hours, can add multiple of these -->
+			 <div class="form-group" ng-class="{'has-error' : filter.creditHours.$invalid}">
+				<label class="col-sm-3 control-label">Credit Hours:</label>
+				<div class="col-sm-7">
+					<input ng-model="hours" name="creditHours" type="number" class="form-control" placeholder="Credit Hours">
+				</div>
+				<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary" ng-disabled="!hours || hours<=0 || hours>13" ng-click="addCreditHours(hours)">Add</button>
+				</div>
+			 </div>
+
+			 <!-- Shows the list of credit hours the user has input for their search. -->
+			 <div ng-show="searchOptions.creditHours.length != 0" ng-repeat="creditHrs in searchOptions.creditHours">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-7" >
+					<p class="deletable-box-thing">
+						Credit hours: {{creditHrs}} <a class="pull-right" ng-click="removeCreditHours(creditHrs)">x</a>
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-3"></div>
+			<div class="col-sm-7">
+				<button ng-disabled="filter.$invalid || validForm()" class="btn btn-primary pull-left">Filter Classes</button>
+			</div>
+		</form>
+	</div>
+	<div style="overflow:auto;" class="col-xs-6 col-sm-3 changeWindowSize" id="subject">
+		<h4 class="text-left">Course Subjects:</h4>
+		<div parent-dir class="list-group">
+			<a select-from-list temp="subject" id="{{subject.id}}" class="list-group-item text-left" ng-repeat="subject in subjects" ng-click="showClasses(subject)">
+				{{subject}}
+			</a>
+			<!-- <select-from-list></select-from-list> -->
+		</div>
+	</div>
+	<div ng-show="courseNumbers.length!=0" style="overflow:auto;" class="col-xs-6 col-sm-3 changeWindowSize" id="courseNumber">
+		<h4 class="text-left">Course Id:</h4>
+		<div parent-dir class="list-group">
+			<a select-from-list temp="courseNumber" id="$index" class="list-group-item text-left" ng-repeat="courses in courseNumbers" ng-click="updateSelectedId(courseNumbers[$index])">
+				{{courses}}
+			</a>
+		</div>
+	</div>
+	<div ng-show="classSections!=null" style="overflow:auto;" class="col-xs-6 col-sm-3 changeWindowSize">
+		<h4 class="text-left">Sections:</h4>
+		<div parent-dir class="list-group">
+			<a id="$index" class="list-group-item text-left" ng-repeat="sections in classSections">
+				{{sections.days_of_week}} {{sections.start}} {{sections.end}}
+				<button class="btn btn-primary pull-right" ng-click="addClass()">Add</button>
+			</a>
+			<button class="btn btn-primary pull-left">View Class</button>
+
+		</div>
+	</div>
+
+</div>
+
+</div>
+<div id='calendar'>
+			<div id='times_column'>
+				<div id='days_label_extension' style="height:23px; width:50px;"></div>
+				<div class='atime' id='8am'>8 am<br></div>
+				<div class='atime' id='9am'>9 am<br></div>
+				<div class='atime' id='10am'>10 am<br></div>
+				<div class='atime' id='11am'>11 am<br></div>
+				<div class='atime' id='12pm'>12 pm<br></div>
+				<div class='atime' id='1pm'>1 pm<br></div>
+				<div class='atime' id='2pm'>2 pm<br></div>
+				<div class='atime' id='3pm'>3 pm<br></div>
+				<div class='atime' id='4pm'>4 pm<br></div>
+				<div class='atime' id='5pm'>5 pm<br></div>
+				<div class='atime' id='6pm'>6 pm<br></div>
+				<div class='atime' id='7pm'>7 pm<br></div>
+				<div class='atime' id='8pm'>8 pm<br></div>
+				<div class='atime' id='9pm'>9 pm<br></div>
+				<div class='atime' id='10pm'>10 pm<br></div>
+				<div class='atime' id='11pm'>11 pm<br></div>
+			</div>
+			<div id='days_column' style="">
+				<div id='days_label'>
+					<div class='aday_label' id='sunday_label' >Sunday</div>
+					<div class='aday_label' id='monday_label' >Monday</div>
+					<div class='aday_label' id='tuesday_label' >Tuesday</div>
+					<div class='aday_label' id='wednesday_label' >Wednesday</div>
+					<div class='aday_label' id='thursday_label' >Thursday</div>
+					<div class='aday_label' id='friday_label' >Friday</div>
+					<div class='aday_label' id='saturday_label' >Saturday</div>
+				</div>
+				<div id='days_times'>
+					<div class='aday_times' id='sunday_times' style="border-style:solid; border-width:0px 1px 0px 1px; border-color:#BFBFBF;">
+					</div>
+					<div class='aday_times' id='monday_times' >
+					</div>
+					<div class='aday_times' id='tuesday_times' >
+					</div>
+					<div class='aday_times' id='wednesday_times' >
+					</div>
+					<div class='aday_times' id='thursday_times' >
+					</div>
+					<div class='aday_times' id='friday_times' >
+					</div>
+					<div class='aday_times' id='saturday_times' >
+					</div>
+				</div>
+			</div>
+		</div>
