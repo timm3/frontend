@@ -24,12 +24,13 @@ if __name__ == '__main__':
     section_query = SectionQuery()
     section_query.connect()
     print(section_query.get_cursor({})[0])
+    print(section_query.client[section_query.db_name][section_query.collection_name].distinct('days_of_week'))
+    print('HERE')
     section_query.disconnect()
     
     prof_query = ProfQuery()
     prof_query.connect()
     print(prof_query.get_cursor({})[0])
-    print('HERE')
     prof_query.disconnect()
     
     table_query = CourseTableQuery({}, 20)

@@ -175,7 +175,7 @@ class CourseQuery(MongoQuery):
     #    prof_rating
     #    start & end times
     #===========================================================================
-    def search_for_course_cursor(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None, start_time = None, end_time = None):
+    def search_for_course_cursor(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None):
         query = {}
         if subject_code:
             query['code'] = subject_code
@@ -187,23 +187,50 @@ class CourseQuery(MongoQuery):
             query['credit_hours'] = self.process_credit_hours_query(credit_hours)
         if min_prof_rating:
             query['gpa'] = {'$gte': min_prof_rating}
-        if start_time and end_time:
+        return self.get_cursor(query)
+
+    
+    
+    def search_for_course_with_time_cursor(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None, start_time = None, end_time = None, days_of_week = None):
+        cursor = self.search_for_course_cursor(subject_code, id_num, min_gpa, credit_hours, min_prof_rating)
+        if (start_time and end_time) or days_of_week:
             section_search = SectionQuery()
             section_search.connect()
-            cursor = self.get_cursor(query)
             results = []
             for json in cursor:
+                done = False
                 for crn in json['crns']:
+                    if done:
+                        break
                     section_cursor = section_search.get_section_cursor_crn(crn)
                     if section_cursor.count() > 0:
                         section_json = section_cursor[0]
-                        if 'start_num' in section_json and 'end_num' in section_json and start_time <= section_json['start_num'] and section_json['end_num'] <= end_time:
-                            results.append(json)
-                            break
+                        if start_time and end_time:
+                            if 'start_num' in section_json and 'end_num' in section_json and start_time <= section_json['start_num'] and section_json['end_num'] <= end_time:
+                                if days_of_week and section_json['days_of_week'] is not None:
+                                    for char_index in range(1, len(section_json['days_of_week'])):
+                                        char = section_json['days_of_week'][char_index]
+                                        if char not in days_of_week:
+                                            break
+                                        if char is ' ':
+                                            results.append(json)
+                                            done = True
+                                            break
+                            else:
+                                if section_json['days_of_week'] is not None:
+                                    for char_index in range(1, len(section_json['days_of_week'])):
+                                        char = section_json['days_of_week'][char_index]
+                                        if char not in days_of_week:
+                                            break
+                                        if char is ' ':
+                                            results.append(json)
+                                            done = True
+                                            break
             section_search.disconnect()
             return results
         else:
-            return self.get_cursor(query)
+            return cursor
+        
     
     
     #===========================================================================
