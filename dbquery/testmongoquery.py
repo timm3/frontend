@@ -80,6 +80,31 @@ class Test(unittest.TestCase):
         for json in cursor:
             self.assertIsNotNone(credit_hours_set.intersection(set(json['credit_hours'])))
         self.cq.disconnect()
+        
+    def testSearchTime(self):
+        self.cq = CourseQuery()
+        self.sq = SectionQuery()
+        self.cq.connect()
+        self.sq.connect()
+        start_num = 1000
+        end_num = 1400
+        list = self.cq.search_for_course_cursor(subject_code = 'CS', start_time = start_num, end_time = end_num)
+        for json in list:
+            boolean = False
+            start_end_list
+            for crn in json['crns']:
+                section_cursor = self.sq.get_section_cursor_crn(crn)
+                if section_cursor.count() > 0:
+                    section_json = section_cursor[0]
+                    if 'start_num' in section_json and 'end_num' in section_json:
+                        start_end_list.append((section_json['start_num'], section_json['end_num']))
+            for pair in start_end_list:
+                if start_num < pair[0] and pair[1] < end_num:
+                    boolean = True
+                    break
+            self.assertTrue(boolean)
+        self.cq.disconnect()
+        self.sq.disconnect()
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

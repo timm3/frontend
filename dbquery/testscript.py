@@ -6,14 +6,20 @@ Created on Apr 6, 2014
 
 from mongoquery import MongoQuery, SectionQuery, CourseQuery, ProfQuery
 from coursetablequery import CourseTableQuery
+from pprint import PrettyPrinter
 
 if __name__ == '__main__':
 
-    client_courses = MongoQuery()
+    pp = PrettyPrinter()
+
+    client_courses = CourseQuery()
     client_courses.connect()
-    client_courses.set_database_name('professors')
-    client_courses.set_collection('professors')
-    print(client_courses.get_cursor({})[1])
+    pp.pprint(client_courses.get_course_JSON('CS', '125'))
+    #client_courses.set_database_name('professors')
+    #client_courses.set_collection('professors')
+    #print(client_courses.get_cursor({})[1])
+    client_courses.disconnect()
+    
     
     section_query = SectionQuery()
     section_query.connect()
@@ -23,6 +29,7 @@ if __name__ == '__main__':
     prof_query = ProfQuery()
     prof_query.connect()
     print(prof_query.get_cursor({})[0])
+    print('HERE')
     prof_query.disconnect()
     
     table_query = CourseTableQuery({}, 20)

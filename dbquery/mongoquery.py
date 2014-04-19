@@ -173,8 +173,9 @@ class CourseQuery(MongoQuery):
     #    credit hours
     #    gpa
     #    prof_rating
+    #    start & end times
     #===========================================================================
-    def search_for_course_cursor(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None):
+    def search_for_course_cursor(self, subject_code = None, id_num = None, min_gpa = None, credit_hours = None, min_prof_rating = None, start_time = None, end_time = None):
         query = {}
         if subject_code:
             query['code'] = subject_code
@@ -186,7 +187,23 @@ class CourseQuery(MongoQuery):
             query['credit_hours'] = self.process_credit_hours_query(credit_hours)
         if min_prof_rating:
             query['gpa'] = {'$gte': min_prof_rating}
-        return self.get_cursor(query)
+        if start_time and end_time:
+            section_search = SectionQuery()
+            section_search.connect()
+            cursor = self.get_cursor(query)
+            results = []
+            for json in cursor:
+                for crn in json['crns']:
+                    section_cursor = section_search.get_section_cursor_crn(crn)
+                    if section_cursor.count() > 0:
+                        section_json = section_cursor[0]
+                        if 'start_num' in section_json and 'end_num' in section_json and start_time <= section_json['start_num'] and section_json['end_num'] <= end_time:
+                            results.append(json)
+                            break
+            section_search.disconnect()
+            return results
+        else:
+            return self.get_cursor(query)
     
     
     #===========================================================================
