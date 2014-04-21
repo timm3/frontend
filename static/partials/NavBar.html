@@ -53,9 +53,91 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup">Sign Up</button></li>
-          <li><a href="partials/signin.html">Sign In</a></li>
+          <li><a href="static/partials/signin.html">Sign In</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
     </nav>
+
+    <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <header class="modal-title" id="myModalLabel">
+                        <span class="text-left" style="font-size:larger;"><b>Create An Account</b></span>
+                        <span class="text-right" style="float:right;"><b><a href="partials/signin.html">LOG IN?</a></b></span>
+                    </header>
+                </div>
+
+<!--================================================== -->
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-7">
+            <input class="form-control" id="name" placeholder="Name" type="text">
+          </div>
+      </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email Address</label>
+          <div class="col-sm-7">
+            <input class="form-control" id="inputEmail3" placeholder="Email Address" type="email">
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-7">
+          <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword3" class="col-sm-2 control-label">Confirm Password</label>
+        <div class="col-sm-7">
+          <input class="form-control" id="confirmPassword3" placeholder="Confirm Password" type="password">
+        </div>
+      </div>
+      <!--
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> <b>Yes, sign me up for Regnow's newsletter.</b>
+            </label>
+        </div>
+      </div>
+      -->
+      <div class="form-group">
+      	<div class="col-sm-offset-1 col-sm-10">
+          <p>Netid and AD password are optional to enable automatated class registration</p>
+        </div>
+      </div>
+      
+      <div class="form-group">
+          <label for="netid" class="col-sm-2 control-label">Netid</label>
+          <div class="col-sm-7">
+            <input class="form-control" id="netid" placeholder="Netid" type="text">
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="inputADPassword3" class="col-sm-2 control-label">AD Password</label>
+        <div class="col-sm-7">
+          <input class="form-control" id="inputADPassword3" placeholder="AD Password" type="password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmADPassword3" class="col-sm-2 control-label">Confirm AD Password</label>
+        <div class="col-sm-7">
+          <input class="form-control" id="confirmADPassword3" placeholder="Confirm AD Password" type="password">
+        </div>
+      </div>
+    </form>
+          
+          <div class="modal-footer">
+            <button type="Submit" class="btn btn-primary" data-dismiss="modal">Sign Up</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div> <!-- modal content -->
+      </div> <!-- modal dialog -->
+    </div> <!-- modal fade --> 
+
   </body></html>

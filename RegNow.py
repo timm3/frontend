@@ -3,7 +3,7 @@ from sys import path
 from pymongo import MongoClient
 import os, json, ast, flask.views
 
-path.insert(0, '/Library/WebServer/Documents/frontend/dbquery')
+path.insert(0, 'dbquery')
 from coursetablequery import CourseTableQuery
 from mongoquery import CourseQuery, SectionQuery
 
