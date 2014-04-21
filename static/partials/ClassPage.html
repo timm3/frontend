@@ -1,40 +1,59 @@
-    
-    <div>
-      {{courseNumbers.classTitle}}
-      <div class="class_identifier">
-        <h1>{{courseNumbers.subject}} - {{courseNumbers.course_id}} - {{courseNumbers.crns[0]}}</h1>
-      </div>
-      <br/>
-      <div class="class_details">
-        <table width="45%" height="30%">
-          <th class="fifteen-h" colspan="2">{{courseNumbers.class_title}}</th>
-          <tr class="fifteen-h">
-            <td class="text-right twenty-w">Professor: </td>
-            <td class="text-left eighty-w">{{courseNumbers.professor}}</td>
-          </tr>
-           <tr class="ten-h">
-            <td class="text-right twenty-w">Credit Hours: </td>
-            <td class="text-left eighty-w">{{courseNumbers.credit_hours[0]}} / 5.0</td>
-          </tr>
-          <tr class="ten-h">
-            <td class="text-right twenty-w">Rating: </td>
-            <td class="text-left eighty-w">{{courseNumbers.rating}} / 5.0</td>
-          </tr>
-          <tr class="fourty-five-h">
-            <td class="text-right twenty-w">Description: </td>
-            <td class="text-left eighty-w">{{courseNumbers.description}}</td>
-          </tr>
-          <tr class="fourty-five-h">
-            <td class="text-right twenty-w">Comments: </td>
-            <td class="text-left eighty-w">{{courseNumbers.comments}}</td>
-          </tr>
-          <tr class="five-h classPage_button_options" >
-            <td class="text-right hundred-w" colspan="2">
-              <button class="glyphicon glyphicon-ok"onClick=""> Add</button>
-              <!--<button class="glyphicon glyphicon-remove" onClick=""> Ban</button> -->
-              <button class="glyphicon glyphicon-list-alt" ng-click="leaveComment()"> Leave Review</button>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
+<style>
+.class-page {
+max-width: 700px;
+padding: 19px 29px 29px;
+margin: 0 auto 20px;
+background-color: #fff;
+border: 1px solid #e5e5e5;
+}
+</style>
+<div class="class-page">
+  <div class="class_identifier">
+    <h1>{{course.subject}} - {{course.course_id}}</h1>
+  </div>
+  <br/>
+  <div class="class_details">
+    <table class="table table-condensed">
+    <!-- <table width="45%" height="30%"> -->
+      <th colspan="2">{{course.class_title}}</th>
+      <tr>
+        <td><p class="pull-right">Term: </p></td>
+        <td class="text-left">{{classSection.term}} {{classSection.year}}</td>
+      </tr>
+      <tr>
+        <td><p class="pull-right">Instructor(s): </p></td>
+        <td class="text-left"><p ng-repeat="instructor in classSection.instructors">{{instructor.last_name}}, {{instructor.first_name}}</p></td>
+      </tr>
+      <tr class="fourty-five-h">
+        <td><p class="pull-right">Description: </p></td>
+        <td class="text-left">{{course.description}}</td>
+      </tr>
+      <tr class="fourty-five-h">
+        <td><p class="pull-right">Time: </p></td>
+        <td class="text-left">Days: {{classSection.days_of_week}} Time: {{classSection.class_start}} - {{classSection.end}}</td>
+      </tr>
+      <tr class="fourty-five-h">
+        <td><p class="pull-right">Section: </p></td>
+        <td class="text-left">{{classSection.section_number}}</td>
+      </tr>
+      <tr>
+        <td class="col-md-2"><p class="pull-right">Credit Hours: </p></td>
+        <td class="text-left">{{course.credit_hours[0]}}</td>
+      </tr>
+      <tr>
+        <td><p class="pull-right">Rating: </p></td>
+        <td class="text-left">{{course.prof_rating}} / 5.0</td>
+      </tr>
+
+      <tr class="fourty-five-h">
+        <td><p class="pull-right">Comments: </p></td>
+        <td class="text-left">{{course.comments}}</td>
+      </tr>
+      <tr class="five-h classPage_button_options" >
+        <td class="text-right hundred-w" colspan="2">
+          <button class="btn btn-primary" ng-click="">Add Class</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

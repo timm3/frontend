@@ -1,7 +1,6 @@
-appCtrls.controller("ClassTableCtrl", ['$scope', '$location', 'ClassDetails', 'UserViewClass', 'mySearch',
-	function($scope, $location, ClassDetails,UserViewClass, mySearch){
+appCtrls.controller("ClassTableCtrl", ['$scope', '$location', 'ClassDetails', 'ClassPageService', 'mySearch',
+	function($scope, $location, ClassDetails,ClassPageService, mySearch){
 
-	// $scope.userViewClass = UserViewClass;
 	$scope.classDetails = ClassDetails;
 	$scope.classDetails.callGet();
 	$scope.selectedId = null;
@@ -13,26 +12,25 @@ appCtrls.controller("ClassTableCtrl", ['$scope', '$location', 'ClassDetails', 'U
 	$scope.searchCourseNumber = null;
 	$scope.searchSubject = null;
 	$scope.mySearch = mySearch;
+
 	/**
 	 *	Will add the class to the calendar below the table, 
 	 *	will also add it to  the list of classes to be added.
 	 */
 	$scope.addClass = function(classSection){
-		console.log(classSection);
 		addToCalendar({code: $scope.selectedSubject, 
 			subject: $scope.classInfo.class_title, 
 			crn: classSection.crn, 
-			startTime: classSection.start, 
+			startTime: classSection.class_start, 
 			endTime: classSection.end, 
 			days: classSection.days_of_week})
-		// $scope.$apply();
 	};
 	$scope.$watch('mySearch.getSearch()', function(newVal, oldVal){
 		if(newVal !== null){
 			var classSearch = newVal.trim().split(" ");
 			$scope.searchSubject = classSearch[0].toUpperCase();
 			$scope.search
-			console.log($scope.searchSubject);
+			// console.log($scope.searchSubject);
 			if($scope.subjects.indexOf($scope.searchSubject) !== -1){
 				$scope.selectedSubject = $scope.searchSubject;
 				$scope.showClasses($scope.selectedSubject);
@@ -64,17 +62,17 @@ appCtrls.controller("ClassTableCtrl", ['$scope', '$location', 'ClassDetails', 'U
 	 */
 	$scope.$watch('classDetails.getCourseSections()', function(newVal, oldVal){
 		$scope.classSections = newVal;
-		// console.log($scope.classSections);
+		console.log($scope.classSections);
 	});
 	/**
-	 *	Updates the course sections based on the class chosen.
+	 *	Gets the information about a specific class, comments, class title, description
 	 */
 	$scope.$watch('classDetails.getInfo()', function(newVal, oldVal){
 		$scope.classInfo = newVal;
-		// console.log($scope.classInfo.class_title);
 	});
 	/**
-	 *
+	 *	Called each time a new subject is selected. Call function to get the course numbers
+	 *	and reset some variables so no errors show up.
 	 */
 	$scope.showClasses = function(subject){
 		$scope.classDetails.postSubject(subject);
@@ -95,8 +93,8 @@ appCtrls.controller("ClassTableCtrl", ['$scope', '$location', 'ClassDetails', 'U
 	/**
 	 *	Routes you to the class page, with all the details about the class selected.
 	 */
-	$scope.viewClass= function(){
-		UserViewClass.update($scope.selectedSubject, $scope.selectedId);
+	$scope.viewClass= function(section){
+		ClassPageService.update($scope.selectedSubject, $scope.selectedId, section, $scope.classInfo);
 		$location.path("/ClassPage");
 	};
 
@@ -113,7 +111,7 @@ appCtrls.controller("ClassTableCtrl", ['$scope', '$location', 'ClassDetails', 'U
 			return;
 		}
 		for(var hr in $scope.searchOptions.creditHours){
-			console.log(hr);
+			// console.log(hr);
 			if($scope.searchOptions.creditHours[hr]=== hours){
 				return;
 			}
@@ -153,3 +151,4 @@ function search(){
 	this.minProfRating = null;
 
 }
+

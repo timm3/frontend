@@ -43,7 +43,8 @@ class ViewClass(flask.views.MethodView):
 		query.connect()
 		info = query.get_course_JSON(myClass['sub'], myClass['subId'])
 		del info['_id']
-		info['class_title'] = info['title'];
+		info['class_title'] = info['title']
+		del info['title']
 		query.disconnect()
 		subjectIds = ast.literal_eval(json.dumps(info))
 		print(subjectIds)
@@ -55,6 +56,8 @@ class ViewClass(flask.views.MethodView):
 			cursor = section.get_section_cursor_crn(crn)
 			courseSect = cursor[0]
 			del courseSect['_id']
+			courseSect['class_start'] = courseSect['start']
+			del courseSect['start']
 			# courseSection = ast.literal_eval(json.dumps(courseSect))
 			sectionList.append(courseSect);
 		section.disconnect()

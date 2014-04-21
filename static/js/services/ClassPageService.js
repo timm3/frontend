@@ -1,60 +1,35 @@
-appServices.service("ClassDetails", function($rootScope, $http){
-	var courseData = null;
-	var subjectIds = null;
-	var courseSections = null;
-	var classInfo = null;
+appServices.service("ClassPageService", function($rootScope, $http){
+	var subject = null;
+	var subjectId = null;
+	var classSection = null;
+	var classData = null;
 
-	this.getInfo = function(){
-		return classInfo;
+	this.update = function(sub, id, section, data){
+		subject = sub;
+		subjectId = id;
+		classSection = section;
+		classData = data;
 	};
-	this.getCourseSections = function(){
-		return courseSections;
+	this.getSubject = function(){
+		return subject;
 	};
-	this.getData = function(){
-		return courseData;
+	this.getClassSection = function(){
+		return classSection;
+	}
+	this.getSubjectId = function(){
+		return subjectId;
 	};
-	this.getIds = function(){
-		return subjectIds;
-	};
-	this.callGet= function(){
-		$http.get('/getSubjects')
-			.success(function(data, status, headers, config){
-				if(data.success){
-					courseData = data.subjectCodes;
-				}
-				else{
-					console.log("Retrieval failed");
-				}
-			})
-			.error(function(data, status, headers, config){
-				console.log("error func: retrieval failed");
-			});
-	};
-	this.postSubject = function(subject){
-		console.log("function: postSubjec()");
-		$http.post('/postCourseIds',{
-			'sub':subject
-			}).success(function(data, status, headers, config){
-				if(data.success){
-					subjectIds = data.subjectIds.sort();
-				}
-				else{
-					console.log("Retrieval failed");
-				}
-			})
-			.error(function(data, status, headers, config){
-				console.log("error func: retrieval failed");
-			});
-	};
-	this.getSections = function(subject, id){
-		console.log("function: getSections");
+	this.getClassData = function(){
+		return classData;
+	}
+	this.postSubject = function(subject, id){
 		$http.post('/postSpecificClass',{
 			'sub':subject,
 			'subId':id
 			}).success(function(data, status, headers, config){
 				if(data.success){
-					classInfo = data.classInfo;
-					courseSections = data.times;
+					classData = data.classInfo;
+					// $rootScope.$apply();
 				}
 				else{
 					console.log("Retrieval failed");

@@ -1,17 +1,25 @@
-appCtrls.controller('ClassPageCtrl', ['$scope', 'UserViewClass',function($scope, UserViewClass) {
-	$scope.userViewClass = UserViewClass
-	$scope.userViewClass.postSubject(UserViewClass.getSubject(), UserViewClass.getSubjectId());
-	
+appCtrls.controller('ClassPageCtrl', ['$scope', '$location','ClassPageService',
+	function($scope, $location, ClassPageService) {
+	$scope.ClassPageService = ClassPageService
+	// $scope.ClassPageService.postSubject(ClassPageService.getSubject(), ClassPageService.getSubjectId());
+	$scope.course = ClassPageService.getClassData();
+	$scope.classSection = ClassPageService.getClassSection();
+	if(ClassPageService.getSubject()==null){
+		$location.path("/ClassTablePage");
+	}
+	console.log("class Section:");
+	console.log(ClassPageService.getClassSection());
+	console.log($scope.course);
 	/**
 	 *	Watches for update of course selected, and getting the class details
 	 */
-	$scope.$watch('userViewClass.getClassData()', function(newVal, oldVal){
-		if(newVal==null){
-			return;
-		}
-		$scope.courseNumbers = newVal;
-		// console.log($scope.courseNumbers);
-	});
+	// $scope.$watch('ClassPageService.getClassData()', function(newVal, oldVal){
+	// 	if(newVal==null){
+	// 		return;
+	// 	}
+	// 	$scope.course = newVal;
+	// 	console.log($scope.course);
+	// });
 
 	/**
 	 *	Will add a comment to this class.  Add the comment to the database.
@@ -29,6 +37,6 @@ appCtrls.controller('ClassPageCtrl', ['$scope', 'UserViewClass',function($scope,
 
 	$scope.post = function(){
 		// ClassDetails.examplePost();
-		ClassDetails.getData();
+		// ClassDetails.getData();
 	}
 }]);

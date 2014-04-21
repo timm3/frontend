@@ -54,7 +54,7 @@
 			 <!-- Search for specified credit hours, can add multiple of these -->
 			 <div class="form-group" ng-class="{'has-error' : filter.creditHours.$invalid}">
 				<label class="col-sm-3 control-label">Credit Hours:</label>
-				<div class="col-sm-7">
+				<div class="col-sm-6">
 					<input ng-model="hours" name="creditHours" type="number" class="form-control" placeholder="Credit Hours">
 				</div>
 				<div class="col-sm-2">
@@ -96,13 +96,16 @@
 	</div>
 	<div ng-show="classSections!=null" style="overflow:auto;" class="col-xs-6 col-sm-3 changeWindowSize">
 		<h4 class="text-left">Sections:</h4>
-		<div parent-dir class="list-group">
-			<a id="$index" class="list-group-item text-left" ng-repeat="sections in classSections">
-				{{sections.days_of_week}} {{sections.start}} {{sections.end}}
-				<button class="btn btn-primary pull-right" ng-click="addClass(sections)">Add</button>
-			</a>
-			<button class="btn btn-primary pull-left">View Class</button>
-
+		<div class="table-responsive">
+			<table class="table">
+				<tr ng-repeat="sections in classSections">
+					<td><p class="pull-left">Days: {{sections.days_of_week}}</p> <br> <p class="pull-left">Time: {{sections.class_start}} - {{sections.end}}</p></td>
+					<td>
+						<button class="btn btn-primary btn-xs" ng-click="addClass(sections)">Add</button>
+						<button class="btn btn-primary btn-xs" ng-click="viewClass(sections)">View Class</button>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 

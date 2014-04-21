@@ -12,7 +12,6 @@ appDir.directive("navbar", ["$location", '$location', 'mySearch',function($locat
 				mySearch.setSearch(newVal);
 			});
 			$scope.submitSearch = function(){
-				console.log("clicked");
 				$location.path('/ClassTablePage');
 			};
 		},
