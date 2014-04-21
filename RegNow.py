@@ -62,13 +62,17 @@ class ViewClass(flask.views.MethodView):
 		print(sectionList)
 		return jsonify({'success':True, 'classInfo': info, 'times':sectionList})
 
-
+class Register(flask.views.MethodView):
+	def post(self):
+		data = request.form
+		print data
+		return 'good boy'
 
 app.add_url_rule('/', view_func=TodoView.as_view('todo_view'))
 app.add_url_rule('/getSubjects', view_func = TodoRetrieve.as_view("todo_retrieve"), methods=['GET'])
 app.add_url_rule('/postCourseIds', view_func = TodoAdd.as_view("todo_add"), methods=['POST'])
 app.add_url_rule('/postSpecificClass', view_func = ViewClass.as_view("view_class"), methods=['POST'])
-
+app.add_url_rule('/register', view_func=Register.as_view("register"), methods=['POST'])
 
 
 if __name__ == "__main__":
