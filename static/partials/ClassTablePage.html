@@ -19,7 +19,7 @@
 	});
 </script>
 <div id="classTable">
-<h2 id="test"></h2>
+
 <h2 style="text-align:center;">UIUC Courses</h2>
 
 <div class="container-fluid" >
@@ -30,6 +30,12 @@
 		<form class="form-horizontal" name="filter" novalidate>
 			<!-- Minimum gpa  -->
 
+			<div class="form-group" ng-class="{'has-error' : filter.gpa.$invalid}">
+				<label class="col-sm-3 control-label">search:</label>
+				<div class="col-sm-9">
+					<input type="number"  class="form-control" ng-model="searchClass" min="0" max="4"  placeholder="Minimum GPA">
+				</div>
+			 </div>
 			<div class="form-group" ng-class="{'has-error' : filter.gpa.$invalid}">
 				<label class="col-sm-3 control-label">GPA:</label>
 				<div class="col-sm-9">
@@ -74,7 +80,7 @@
 	<div style="overflow:auto;" class="col-xs-6 col-sm-3 changeWindowSize" id="subject">
 		<h4 class="text-left">Course Subjects:</h4>
 		<div parent-dir class="list-group">
-			<a select-from-list temp="subject" id="{{subject.id}}" class="list-group-item text-left" ng-repeat="subject in subjects" ng-click="showClasses(subject)">
+			<a select-from-list temp="subject"  class="list-group-item text-left" ng-repeat="subject in subjects | filter:searchSubject" id="{{subject}}" selected-data="{{selectedSubject}}" ng-click="showClasses(subject)">
 				{{subject}}
 			</a>
 			<!-- <select-from-list></select-from-list> -->
@@ -83,7 +89,7 @@
 	<div ng-show="courseNumbers.length!=0" style="overflow:auto;" class="col-xs-6 col-sm-3 changeWindowSize" id="courseNumber">
 		<h4 class="text-left">Course Id:</h4>
 		<div parent-dir class="list-group">
-			<a select-from-list temp="courseNumber" id="$index" class="list-group-item text-left" ng-repeat="courses in courseNumbers" ng-click="updateSelectedId(courseNumbers[$index])">
+			<a select-from-list temp="courseNumber" class="list-group-item text-left" ng-repeat="courses in courseNumbers | filter:searchCourseNumber" id="{{courses}}" selected-data="{{selectedId}}" ng-click="updateSelectedId(courses)">
 				{{courses}}
 			</a>
 		</div>
@@ -93,7 +99,7 @@
 		<div parent-dir class="list-group">
 			<a id="$index" class="list-group-item text-left" ng-repeat="sections in classSections">
 				{{sections.days_of_week}} {{sections.start}} {{sections.end}}
-				<button class="btn btn-primary pull-right" ng-click="addClass()">Add</button>
+				<button class="btn btn-primary pull-right" ng-click="addClass(sections)">Add</button>
 			</a>
 			<button class="btn btn-primary pull-left">View Class</button>
 

@@ -2,11 +2,17 @@
 
 /* Services */
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
 var appServices = angular.module('RegNow.services', []);
+appServices.service("mySearch", function(){
+	var searchInput = null;
 
+	this.setSearch = function(search){
+		searchInput = search;
+	};
+	this.getSearch = function(){
+		return searchInput;
+	};
+});
 appServices.service("UserViewClass", function($rootScope, $http){
 	var subject = null;
 	var subjectId = null;

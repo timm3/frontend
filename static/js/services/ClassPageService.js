@@ -2,7 +2,11 @@ appServices.service("ClassDetails", function($rootScope, $http){
 	var courseData = null;
 	var subjectIds = null;
 	var courseSections = null;
+	var classInfo = null;
 
+	this.getInfo = function(){
+		return classInfo;
+	};
 	this.getCourseSections = function(){
 		return courseSections;
 	};
@@ -49,7 +53,7 @@ appServices.service("ClassDetails", function($rootScope, $http){
 			'subId':id
 			}).success(function(data, status, headers, config){
 				if(data.success){
-					classData = data.classInfo;
+					classInfo = data.classInfo;
 					courseSections = data.times;
 				}
 				else{

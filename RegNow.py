@@ -43,21 +43,20 @@ class ViewClass(flask.views.MethodView):
 		query.connect()
 		info = query.get_course_JSON(myClass['sub'], myClass['subId'])
 		del info['_id']
+		info['class_title'] = info['title'];
 		query.disconnect()
 		subjectIds = ast.literal_eval(json.dumps(info))
+		print(subjectIds)
 		#create object to query the times of the specific course
 		section = SectionQuery()
 		sectionList = []
 		section.connect()
-		count = 0
 		for crn in info['crns']:
 			cursor = section.get_section_cursor_crn(crn)
 			courseSect = cursor[0]
 			del courseSect['_id']
 			# courseSection = ast.literal_eval(json.dumps(courseSect))
-			print(courseSect)
 			sectionList.append(courseSect);
-			count+=1
 		section.disconnect()
 		print(sectionList)
 		return jsonify({'success':True, 'classInfo': info, 'times':sectionList})

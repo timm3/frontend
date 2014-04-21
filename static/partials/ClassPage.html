@@ -1,4 +1,4 @@
-
+    
     <div>
       {{courseNumbers.classTitle}}
       <div class="class_identifier">
@@ -7,7 +7,7 @@
       <br/>
       <div class="class_details">
         <table width="45%" height="30%">
-          <th class="fifteen-h" colspan="2">{{courseNumbers.title}}</th>
+          <th class="fifteen-h" colspan="2">{{courseNumbers.class_title}}</th>
           <tr class="fifteen-h">
             <td class="text-right twenty-w">Professor: </td>
             <td class="text-left eighty-w">{{courseNumbers.professor}}</td>
@@ -32,7 +32,7 @@
             <td class="text-right hundred-w" colspan="2">
               <button class="glyphicon glyphicon-ok"onClick=""> Add</button>
               <!--<button class="glyphicon glyphicon-remove" onClick=""> Ban</button> -->
-              <button class="glyphicon glyphicon-list-alt"onClick=""> Leave Review</button>
+              <button class="glyphicon glyphicon-list-alt" ng-click="leaveComment()"> Leave Review</button>
             </td>
           </tr>
         </table>
