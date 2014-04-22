@@ -67,7 +67,7 @@ class ViewClass(flask.views.MethodView):
 class Register(flask.views.MethodView):
 	def post(self):
 		data = request.form
-		print data
+		print(data)
 		return 'good boy'
 
 app.add_url_rule('/', view_func=TodoView.as_view('todo_view'))
