@@ -2,9 +2,9 @@ appDir.directive("navbar", ["$location", '$location', 'mySearch',function($locat
 	return{
 		restrict:"E",
 		controller: function($scope, $location, mySearch){
-			$scope.logout = function(){
-				alert("implement logout function");
-			};
+			$scope.signUp = function(){
+				$location.path("/SignUp");
+			}
 
 			$scope.searchInput = null;
 			$scope.$watch('searchInput', function(newVal){
