@@ -20,127 +20,152 @@
 	body {
 		background-image:url("../img/back7.jpg");
 	}
+	
+	.msgDiv {
+		display: none;
+	}
 	</style>
   </head>
 	<body>
     <nav class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">Regnow</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="partials/about.html">About</a></li>
-          <li><a href="mailto:help@illiniregnow.com?Subject=More%20Information">Contact</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ClassTable<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="/partials/ClassTablePage.html">Course Information</a></li>
-              <li><a href="/partials/ClassPage.html">Class History</a></li>
-              <li><a href="index_old.html">Professor Ratings</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Fall 2014</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Summer 2014</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input class="form-control" placeholder="Search" type="text">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalLabel">Sign Up</button></li>
-          <li><a href="partials/signin.html">Sign In</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Regnow</a>
+        </div>
+  
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="partials/about.html">About</a></li>
+            <li><a href="mailto:help@illiniregnow.com?Subject=More%20Information">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">ClassTable<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/partials/ClassTablePage.html">Course Information</a></li>
+                <li><a href="/partials/ClassPage.html">Class History</a></li>
+                <li><a href="index_old.html">Professor Ratings</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Fall 2014</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Summer 2014</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input class="form-control" placeholder="Search" type="text">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalLabel">Sign Up</button></li>
+            <li><a href="partials/signin.html">Sign In</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
     </nav>
 
 <!--================================================== -->
 
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <header class="modal-title" id="myModalLabel">
-              <span class="text-left" style="font-size:larger;"><b>Create An Account</b></span>
-              <span class="text-right" style="float:right;"><b><a href="partials/signin.html">LOG IN?</a></b></span>
-            </header>
-          </div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <header class="modal-title" id="myModalLabel">
+            <span class="text-left" style="font-size:larger;"><b>Create An Account</b></span>
+            <span class="text-right" style="float:right;"><b><a href="partials/signin.html">LOG IN?</a></b></span>
+          </header>
+        </div>
 
 <!--================================================== -->
 
-      <form class="form-horizontal" role="form">
-        <div class="form-group">
-          <label for="name" class="col-sm-2 control-label">Name</label>
-          <div class="col-sm-7">
-            <input class="form-control" id="name" placeholder="Name" type="text">
+        <form class="form-horizontal" role="form" action="/signup" name="signup" id="signup" method="post">
+          <div class="form-group">
+            <label for="name" class="col-sm-4 control-label">Name</label>
+            <div class="col-sm-6">
+              <input class="form-control" id="name" placeholder="Name" type="text" onChange="validateUsername('username', this, document.getElementById('validNameMessage'), document.getElementById('validNameDiv'));">
+            </div>
           </div>
-      </div>
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Email Address</label>
-          <div class="col-sm-7">
-            <input class="form-control" id="inputEmail3" placeholder="Email Address" type="email">
+          <div class="form-group msgDiv" id="validNameDiv">
+            <div class="col-sm-offset-1 col-sm-10">
+              <p id="validNameMessage"></p>
+            </div>
           </div>
-      </div>
-      <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-7">
-          <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="confirmPassword3" class="col-sm-2 control-label">Confirm Password</label>
-        <div class="col-sm-7">
-          <input class="form-control" id="confirmPassword3" placeholder="Confirm Password" type="password">
-        </div>
-      </div>
-
-      <div class="form-group">
-      	<div class="col-sm-offset-1 col-sm-10">
-          <p>Netid and AD password are optional to enable automated class registration</p>
-        </div>
-      </div>
-      
-      <div class="form-group">
-          <label for="netid" class="col-sm-2 control-label">Netid</label>
-          <div class="col-sm-7">
-            <input class="form-control" id="netid" placeholder="Netid" type="text">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">Email Address</label>
+            <div class="col-sm-6">
+              <input class="form-control" id="inputEmail3" placeholder="Email Address" type="email" onChange="validEmail(this, document.getElementById('validEmailMessage'), document.getElementById('validEmailDiv'));">
+            </div>
           </div>
-      </div>
-      <div class="form-group">
-        <label for="inputADPassword3" class="col-sm-2 control-label">AD Password</label>
-        <div class="col-sm-7">
-          <input class="form-control" id="inputADPassword3" placeholder="AD Password" type="password">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="confirmADPassword3" class="col-sm-2 control-label">Confirm AD Password</label>
-        <div class="col-sm-7">
-          <input class="form-control" id="confirmADPassword3" placeholder="Confirm AD Password" type="password">
-        </div>
+          <div class="form-group msgDiv" id="validEmailDiv">
+            <div class="col-sm-offset-1 col-sm-10">
+              <p id="validEmailMessage"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+            <div class="col-sm-6">
+              <input class="form-control" id="inputPassword3" placeholder="Password" type="password" onKeyUp="checkPass('pass', document.getElementById('inputPassword3'), document.getElementById('confirmPassword3'), document.getElementById('passwordMatchMessage'), document.getElementById('validPasswordDiv'));">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword3" class="col-sm-4 control-label">Confirm Password</label>
+            <div class="col-sm-6">
+              <input class="form-control" id="confirmPassword3" placeholder="Confirm Password" type="password" onKeyUp="checkPass('pass', document.getElementById('inputPassword3'), document.getElementById('confirmPassword3'), document.getElementById('passwordMatchMessage'), document.getElementById('validPasswordDiv'));">
+            </div>
+          </div>
+          <div class="form-group msgDiv" id="validPasswordDiv">
+            <div class="col-sm-offset-1 col-sm-10">
+              <p id="passwordMatchMessage"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-10">
+              <p>Netid and AD password are optional to enable automatated class registration</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="netid" class="col-sm-4 control-label">Netid</label>
+            <div class="col-sm-6">
+              <input class="form-control" id="netid" placeholder="Netid" type="text" onChange="validateUsername('netid', this, document.getElementById('validNetidMessage'), document.getElementById('validNetidDiv'));">
+            </div>
+          </div>
+          <div class="form-group msgDiv" id="validNetidDiv">
+            <div class="col-sm-offset-1 col-sm-10">
+              <p id="validNetidMessage"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputADPassword3" class="col-sm-4 control-label">AD Password</label>
+            <div class="col-sm-6">
+              <input class="form-control" id="inputADPassword3" placeholder="AD Password" type="password" onKeyUp="checkPass('adPass', document.getElementById('inputADPassword3'), document.getElementById('confirmADPassword3'), document.getElementById('ADpasswordMatchMessage'), document.getElementById('validADPasswordDiv'));">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmADPassword3" class="col-sm-4 control-label">Confirm AD Password</label>
+            <div class="col-sm-6">
+              <input class="form-control" id="confirmADPassword3" placeholder="Confirm AD Password" type="password" onKeyUp="checkPass('adPass', document.getElementById('inputADPassword3'), document.getElementById('confirmADPassword3'), document.getElementById('ADpasswordMatchMessage'), document.getElementById('validADPasswordDiv'));">
+            </div>
+          </div>
+          <div class="form-group msgDiv" id="validADPasswordDiv">
+            <div class="col-sm-offset-1 col-sm-10">
+              <p id="ADpasswordMatchMessage"></p>
+            </div>
+          </div>
+          <div class="form-group">
+          	<span style="float:right;">
+    	      <button type="button" class="btn btn-primary" style="position:relative;left:-10%;" data-dismiss="modal" onClick="validateSignup();">Sign Up</button>
+	          <button type="button" class="btn btn-default" style="position:relative;left:-10%;" data-dismiss="modal">Cancel</button>
+            </span>
+          </div>
+        </form>
       </div>
     </div>
-
-    <div class="modal-footer">
-            <button type="Submit" class="btn btn-primary" data-dismiss="modal">Sign Up</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-    </div>
-    </form>
-          
-
-        </div>
-      </div>
-    
-  </body></html>
+  </body>
+</html>
