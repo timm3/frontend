@@ -8,6 +8,9 @@ var app = angular.module('RegNow', ['ngRoute','RegNow.controllers', 'RegNow.dire
 	    $routeProvider.when('/ClassTablePage', {templateUrl: '/static/partials/ClassTablePage.html', controller:"ClassTableCtrl"});
 	    $routeProvider.when('/Profile', {templateUrl: '/static/partials/Profile.html'});
 	    $routeProvider.when('/RegNow', {templateUrl: '/static/partials/ClassPage.html', controller:"ClassPageCtrl"});
+	    $routeProvider.when('/About', {templateUrl: '/static/partials/about.html'});
+	    $routeProvider.when('/About', {templateUrl: '/static/partials/about.html'});
+	    $routeProvider.when('/About', {templateUrl: '/static/partials/about.html'});
 	    $routeProvider.otherwise({redirectTo: '/home'});
 	  });
 

@@ -1,157 +1,66 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Automated class registration system.">
-    <meta name="author" content="Rishi Girish">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Regnow: Registration Made Easy</title>
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container-fluid">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="../index">Regnow</a>
+  </div>
 
-    <!-- Bootstrap core CSS -->
-    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-  </head>
-	<body>
-    <nav class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../index">Regnow</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="partials/about.html">About</a></li>
-          <li><a href="mailto:help@illiniregnow.com?Subject=More%20Information">Contact</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ClassTable<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="/#/ClassTablePage">Course Information</a></li>
-              <li><a href="/partials/ClassPage.html">Class History</a></li>
-              <li><a href="index_old.html">Professor Ratings</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Fall 2014</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Summer 2014</a></li>
-            </ul>
-          </li>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/#/About">About</a></li>
+      <li><a href="mailto:help@illiniregnow.com?Subject=More%20Information">Contact</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ClassTable<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/#/ClassTablePage">Course Information</a></li>
+          <li><a href="/#/ClassPage">Class History</a></li>
+          <li><a href="index_old.html">Professor Ratings</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Fall 2014</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Summer 2014</a></li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input class="form-control" ng-model="searchInput" placeholder="Search" type="text">
-          </div>
-          <button  class="btn btn-default" ng-click="submitSearch()">Submit</button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup">Sign Up</button></li>
-          <li><a href="static/partials/signin.html">Sign In</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-    </nav>
-
-    <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <header class="modal-title" id="myModalLabel">
-                        <span class="text-left" style="font-size:larger;"><b>Create An Account</b></span>
-                        <span class="text-right" style="float:right;"><b><a href="partials/signin.html">LOG IN?</a></b></span>
-                    </header>
-                </div>
-
-<!--================================================== -->
-
-      <form class="form-horizontal" role="form" id="form1">
-        <div class="form-group">
-          <label for="name" class="col-sm-2 control-label">Name</label>
-          <div class="col-sm-7">
-            <input class="form-control" data-name="name" placeholder="Name" type="text">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Email Address</label>
-          <div class="col-sm-7">
-            <input class="form-control" id="inputEmail3" data-name="email" placeholder="Email Address" type="email">
-          </div>
-      </div>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-7">
-          <input class="form-control" id="inputPassword3" placeholder="Password" type="password">
-        </div>
+        <input class="form-control" ng-model="searchInput" placeholder="Search" type="text">
       </div>
-      <div class="form-group">
-        <label for="confirmPassword3" class="col-sm-2 control-label">Confirm Password</label>
-        <div class="col-sm-7">
-          <input class="form-control" id="confirmPassword3" placeholder="Confirm Password" type="password">
-        </div>
-      </div>
-
-      <div class="form-group">
-      	<div class="col-sm-offset-1 col-sm-10">
-          <p>Netid and AD password are optional to enable automatated class registration</p>
-        </div>
-      </div>
-      
-      <div class="form-group">
-          <label for="netid" class="col-sm-2 control-label">Netid</label>
-          <div class="col-sm-7">
-            <input class="form-control" id="netid" placeholder="Netid" type="text">
-          </div>
-      </div>
-      <div class="form-group">
-        <label for="inputADPassword3" class="col-sm-2 control-label">AD Password</label>
-        <div class="col-sm-7">
-          <input class="form-control" id="inputADPassword3" placeholder="AD Password" type="password">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="confirmADPassword3" class="col-sm-2 control-label">Confirm AD Password</label>
-        <div class="col-sm-7">
-          <input class="form-control" id="confirmADPassword3" placeholder="Confirm AD Password" type="password">
-        </div>
-      </div>
-
-      <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" >Sign Up</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-      </div>
-
+      <button  class="btn btn-default" ng-click="submitSearch()">Submit</button>
     </form>
-          
-        </div> <!-- modal content -->
-      </div> <!-- modal dialog -->
-    </div> <!-- modal fade --> 
-    <script src="static/js/validation/singlevalidate.js"></script>
-    <script type="text/javascript"> 
-      $().ready(function() {
-        $("#form1").submit(function () {
-          var retval = {}; 
-          var inputs = $('.form-horizontal :input');
-          inputs.each(function(index, elem){
-            var dfieldname = $(this).attr('data-name');
-            var dfieldval = $(this).val();
-            if(dfieldname){
-                // console.log(dfieldname);
-                // console.log(dfieldval);
-                retval[dfieldname] = dfieldval;
-            }
-          })
-          $.post("/register", retval);
-          // console.log(retval);
-        });
-      });
-    </script>
-  </body>
+    <ul class="nav navbar-nav navbar-right">
+      <li><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup">Sign Up</button></li>
+      <li><a href="static/partials/signin.html">Sign In</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
 
-</html>
+<script src="static/js/validation/singlevalidate.js"></script>
+<script type="text/javascript"> 
+  $().ready(function() {
+    $("#form1").submit(function () {
+      var retval = {}; 
+      var inputs = $('.form-horizontal :input');
+      inputs.each(function(index, elem){
+        var dfieldname = $(this).attr('data-name');
+        var dfieldval = $(this).val();
+        if(dfieldname){
+            // console.log(dfieldname);
+            // console.log(dfieldval);
+            retval[dfieldname] = dfieldval;
+        }
+      })
+      $.post("/register", retval);
+      // console.log(retval);
+    });
+  });
+</script>
