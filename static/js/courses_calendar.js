@@ -52,10 +52,8 @@ function creteCourseDiv(courseInfo)
 		var courseId = "course_" + courseInfo.crn + "_" + parents[ i ];
 		course.setAttribute('id', courseId);
 		course.className = "course_entry";
-		course.style.height = getCourseBoxHeight(courseInfo.startTime, courseInfo.endTime);
-		
+		course.style.height = getCourseBoxHeight(courseInfo.startTime, courseInfo.endTime) + "px";
 		course.style.top = yCoordFromHour(courseInfo.startTime).toString() + "px";
-		console.log(toString(yCoordFromHour(courseInfo.startTime)) + "px");
 		
 		course.innerHTML = courseInfo.subject;
 		
@@ -66,10 +64,11 @@ function creteCourseDiv(courseInfo)
 	{
 		// create remove button for the course
 		var button = document.createElement('button');
-		button.setAttribute('type', 'button');
+		button.setAttribute('class', 'remove_button');
+		button.setAttribute('type', 'button');		
 		button.setAttribute('value', 'remove course ' + courseInfo.crn);
 		button.setAttribute('title', "Remove course " + courseInfo.subject + " that is on " + courseInfo.days + ".");
-		button.innerHTML = '-';
+		button.innerHTML = 'x';
 		
 		button.onclick = function() {	   
 			var parentsIds = dayTokenStringToDaysTimesIds(courseInfo.days);
@@ -282,9 +281,3 @@ function getCourseBoxHeight(startTime, endTime)
 	
 	return boxWidth;
 }
-
-
-
-
-
-
