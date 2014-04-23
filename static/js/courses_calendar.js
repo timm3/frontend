@@ -1,6 +1,6 @@
 /**
 *	This function generate from course information an HTML div with that can be added to a calendar. 
-*	@param associated array of course info values
+*	@param courseInfo associated array of course info values
 *	@return array of DOM objects that represent course from given information
 */
 function creteCourseDiv(courseInfo)
@@ -24,6 +24,20 @@ function creteCourseDiv(courseInfo)
 		children.push(course);
 	}
 	
+	children = attachRemoveButton(children, courseInfo);
+	
+	return children;
+}
+
+/**
+ * This function creates a remove button for an array of given divs
+ * and attaches the button to each div.
+ * @param children an array of div DOM objects
+ * @param courseInfo associated array of course info values
+ * @returns array of DOM objects with attached a remove button child 
+ */
+function attachRemoveButton(children, courseInfo)
+{
 	for( var i = 0; i < children.length; i++ )
 	{
 		// create remove button for the course

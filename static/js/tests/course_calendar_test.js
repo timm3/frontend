@@ -506,10 +506,41 @@ test( "getCourseBoxHeight test : test width of the course box.", function()
 	deepEqual(boxHeight, expectedResult, message);
 });
 
+/******************************************************************************
+ * 	getCourseColor()
+ ******************************************************************************/
+test( "getCourseColor test : test returned rgba value for CSS.", function() 
+{
+	var courseCode = "ABE";
+	
+	var expectedResult = "rgba(0,245,45,0.8)";
+	var color = getCourseColor(courseCode);
+	var message = "Get color representation of a course for CSS color property. courseCode = " + courseCode + ", expectedResult = " + expectedResult;                                           
+	
+	deepEqual(color, expectedResult, message);
+});
 
+test( "getCourseColor test : test returned rgba value for CSS.", function() 
+{
+	var courseCode = "VM";
+	
+	var expectedResult = "rgba(0,252,236,0.8)";
+	var color = getCourseColor(courseCode);
+	var message = "Get color representation of a course for CSS color property. courseCode = " + courseCode + ", expectedResult = " + expectedResult;                                           
+	
+	deepEqual(color, expectedResult, message);
+});
 
-
-
+test( "getCourseColor test : test returned rgba value for CSS in case of non-matching code.", function() 
+{
+	var courseCode = "";
+	
+	var expectedResult = "rgba(255,36,36,0.8)";
+	var color = getCourseColor(courseCode);
+	var message = "Get color representation of a course for CSS color property. courseCode = " + courseCode + ", expectedResult = " + expectedResult;                                           
+	
+	deepEqual(color, expectedResult, message);
+});
 
 
 
