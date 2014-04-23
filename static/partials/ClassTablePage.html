@@ -23,20 +23,13 @@
 <h2 style="text-align:center;">UIUC Courses</h2>
 
 <div class="container-fluid" >
-
 	<!-- search options -->
 	<div class="col-xs-6 col-sm-3" id="filterOptions">
 		<h4 class="text-left">Filter Classes:</h4>		
 		<form class="form-horizontal" name="filter" novalidate>
+			
 			<!-- Minimum gpa  -->
-
-			<div class="form-group" ng-class="{'has-error' : filter.gpa.$invalid}">
-				<label class="col-sm-3 control-label">search:</label>
-				<div class="col-sm-9">
-					<input type="number"  class="form-control" ng-model="searchClass" min="0" max="4"  placeholder="Minimum GPA">
-				</div>
-			 </div>
-			<div class="form-group" ng-class="{'has-error' : filter.gpa.$invalid}">
+			<div ng-show="!hasFilter" class="form-group" ng-class="{'has-error' : filter.gpa.$invalid}">
 				<label class="col-sm-3 control-label">GPA:</label>
 				<div class="col-sm-9">
 					<input type="number" name="gpa" class="form-control" ng-model="searchOptions.minGpa" min="0" max="4"  placeholder="Minimum GPA">
@@ -44,7 +37,7 @@
 			 </div>
 
 			 <!-- Minimum professor rating from rate my professor -->
-			 <div class="form-group" ng-class="{'has-error' : filter.profRating.$invalid}">
+			 <div ng-show="!hasFilter" class="form-group" ng-class="{'has-error' : filter.profRating.$invalid}">
 				<label class="col-sm-3 control-label">Professor Rating:</label>
 				<div class="col-sm-9">
 					<input type="number" name="profRating" ng-model="searchOptions.minProfRating" class="form-control" min="0" max="5" placeholder="Minimum Professor rating">
@@ -52,7 +45,7 @@
 			 </div>
 
 			 <!-- Search for specified credit hours, can add multiple of these -->
-			 <div class="form-group" ng-class="{'has-error' : filter.creditHours.$invalid}">
+			 <div  ng-show="!hasFilter" class="form-group" ng-class="{'has-error' : filter.creditHours.$invalid}">
 				<label class="col-sm-3 control-label">Credit Hours:</label>
 				<div class="col-sm-6">
 					<input ng-model="hours" name="creditHours" type="number" class="form-control" placeholder="Credit Hours">
@@ -63,7 +56,7 @@
 			 </div>
 
 			 <!-- Shows the list of credit hours the user has input for their search. -->
-			 <div ng-show="searchOptions.creditHours.length != 0" ng-repeat="creditHrs in searchOptions.creditHours">
+			 <div  ng-show="!hasFilter" ng-show="searchOptions.creditHours.length != 0" ng-repeat="creditHrs in searchOptions.creditHours">
 				<div class="col-sm-3"></div>
 				<div class="col-sm-7" >
 					<p class="deletable-box-thing">
@@ -72,8 +65,11 @@
 				</div>
 			</div>
 			<div class="col-sm-3"></div>
-			<div class="col-sm-7">
-				<button ng-disabled="filter.$invalid || validForm()" class="btn btn-primary pull-left">Filter Classes</button>
+			<div  ng-show="!hasFilter" class="col-sm-7">
+				<button ng-disabled="filter.$invalid || validForm()" ng-click="submitFilter()" class="btn btn-primary pull-left">Filter Classes</button>
+			</div>
+			<div  ng-show="hasFilter" class="col-sm-7">
+				<button ng-click="removeFilter()" class="btn btn-primary pull-left">Remove Filter</button>
 			</div>
 		</form>
 	</div>
@@ -112,51 +108,53 @@
 </div>
 
 </div>
+<!-- <week-view></week-view> -->
+
 <div id='calendar'>
-			<div id='times_column'>
-				<div id='days_label_extension' style="height:23px; width:50px;"></div>
-				<div class='atime' id='8am'>8 am<br></div>
-				<div class='atime' id='9am'>9 am<br></div>
-				<div class='atime' id='10am'>10 am<br></div>
-				<div class='atime' id='11am'>11 am<br></div>
-				<div class='atime' id='12pm'>12 pm<br></div>
-				<div class='atime' id='1pm'>1 pm<br></div>
-				<div class='atime' id='2pm'>2 pm<br></div>
-				<div class='atime' id='3pm'>3 pm<br></div>
-				<div class='atime' id='4pm'>4 pm<br></div>
-				<div class='atime' id='5pm'>5 pm<br></div>
-				<div class='atime' id='6pm'>6 pm<br></div>
-				<div class='atime' id='7pm'>7 pm<br></div>
-				<div class='atime' id='8pm'>8 pm<br></div>
-				<div class='atime' id='9pm'>9 pm<br></div>
-				<div class='atime' id='10pm'>10 pm<br></div>
-				<div class='atime' id='11pm'>11 pm<br></div>
+	<div id='times_column'>
+		<div id='days_label_extension' style="height:23px; width:50px;"></div>
+		<div class='atime' id='8am'>8 am<br></div>
+		<div class='atime' id='9am'>9 am<br></div>
+		<div class='atime' id='10am'>10 am<br></div>
+		<div class='atime' id='11am'>11 am<br></div>
+		<div class='atime' id='12pm'>12 pm<br></div>
+		<div class='atime' id='1pm'>1 pm<br></div>
+		<div class='atime' id='2pm'>2 pm<br></div>
+		<div class='atime' id='3pm'>3 pm<br></div>
+		<div class='atime' id='4pm'>4 pm<br></div>
+		<div class='atime' id='5pm'>5 pm<br></div>
+		<div class='atime' id='6pm'>6 pm<br></div>
+		<div class='atime' id='7pm'>7 pm<br></div>
+		<div class='atime' id='8pm'>8 pm<br></div>
+		<div class='atime' id='9pm'>9 pm<br></div>
+		<div class='atime' id='10pm'>10 pm<br></div>
+		<div class='atime' id='11pm'>11 pm<br></div>
+	</div>
+	<div id='days_column' style="">
+		<div id='days_label'>
+			<div class='aday_label' id='sunday_label' >Sunday</div>
+			<div class='aday_label' id='monday_label' >Monday</div>
+			<div class='aday_label' id='tuesday_label' >Tuesday</div>
+			<div class='aday_label' id='wednesday_label' >Wednesday</div>
+			<div class='aday_label' id='thursday_label' >Thursday</div>
+			<div class='aday_label' id='friday_label' >Friday</div>
+			<div class='aday_label' id='saturday_label' >Saturday</div>
+		</div>
+		<div id='days_times'>
+			<div class='aday_times' id='sunday_times' style="border-style:solid; border-width:0px 1px 0px 1px; border-color:#BFBFBF;">
 			</div>
-			<div id='days_column' style="">
-				<div id='days_label'>
-					<div class='aday_label' id='sunday_label' >Sunday</div>
-					<div class='aday_label' id='monday_label' >Monday</div>
-					<div class='aday_label' id='tuesday_label' >Tuesday</div>
-					<div class='aday_label' id='wednesday_label' >Wednesday</div>
-					<div class='aday_label' id='thursday_label' >Thursday</div>
-					<div class='aday_label' id='friday_label' >Friday</div>
-					<div class='aday_label' id='saturday_label' >Saturday</div>
-				</div>
-				<div id='days_times'>
-					<div class='aday_times' id='sunday_times' style="border-style:solid; border-width:0px 1px 0px 1px; border-color:#BFBFBF;">
-					</div>
-					<div class='aday_times' id='monday_times' >
-					</div>
-					<div class='aday_times' id='tuesday_times' >
-					</div>
-					<div class='aday_times' id='wednesday_times' >
-					</div>
-					<div class='aday_times' id='thursday_times' >
-					</div>
-					<div class='aday_times' id='friday_times' >
-					</div>
-					<div class='aday_times' id='saturday_times' >
-					</div>
-				</div>
+			<div class='aday_times' id='monday_times' >
+			</div>
+			<div class='aday_times' id='tuesday_times' >
+			</div>
+			<div class='aday_times' id='wednesday_times' >
+			</div>
+			<div class='aday_times' id='thursday_times' >
+			</div>
+			<div class='aday_times' id='friday_times' >
+			</div>
+			<div class='aday_times' id='saturday_times' >
 			</div>
 		</div>
+	</div>
+</div>

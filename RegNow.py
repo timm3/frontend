@@ -59,10 +59,24 @@ class ViewClass(flask.views.MethodView):
 			courseSect['class_start'] = courseSect['start']
 			del courseSect['start']
 			# courseSection = ast.literal_eval(json.dumps(courseSect))
-			sectionList.append(courseSect);
+			sectionList.append(courseSect)
 		section.disconnect()
 		print(sectionList)
 		return jsonify({'success':True, 'classInfo': info, 'times':sectionList})
+
+class FilterCourses(flask.views.MethodView):
+	def post(self):
+		myFilter = json.loads(request.data)['filter']
+		print(myFilter)
+		query = CourseQuery()
+		query.connect()
+		filterQuery = query.search_for_course_cursor(min_gpa = myFilter['gpa'], credit_hours = myFilter['credit_hours'], min_prof_rating = myFilter['prof_rating'])
+		query.disconnect()
+		filteredClasses = []
+		for course in filterQuery:
+			del course['_id']
+			filteredClasses.append(course)
+		return jsonify({'success':True, 'filteredClasses':filteredClasses})
 
 class Register(flask.views.MethodView):
 	def post(self):
@@ -74,9 +88,10 @@ app.add_url_rule('/', view_func=TodoView.as_view('todo_view'))
 app.add_url_rule('/getSubjects', view_func = TodoRetrieve.as_view("todo_retrieve"), methods=['GET'])
 app.add_url_rule('/postCourseIds', view_func = TodoAdd.as_view("todo_add"), methods=['POST'])
 app.add_url_rule('/postSpecificClass', view_func = ViewClass.as_view("view_class"), methods=['POST'])
+app.add_url_rule('/postFilter', view_func=FilterCourses.as_view("filter_courses"), methods=['POST'])
 app.add_url_rule('/register', view_func=Register.as_view("register"), methods=['POST'])
 
 
 if __name__ == "__main__":
-#  app.run(debug=True) <-- use this for localhost
-  app.run(host="0.0.0.0", debug=False, port=80) #<-- use this on the deployment server.
+ app.run(debug=True) #<-- use this for localhost
+  # app.run(host="0.0.0.0", debug=False, port=80) #<-- use this on the deployment server.
