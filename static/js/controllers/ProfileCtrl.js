@@ -33,7 +33,7 @@ appCtrls.controller('ProfileCtrl', ['$scope',
 			}
 			if($scope.crns.length > 0){
 				$http.post(url).success(function(data, status, headers, config){
-						
+						alert(data);
 					})
 					.error(function(data, status, headers, config){
 						console.log("error func: retrieval failed");
