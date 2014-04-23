@@ -5,7 +5,6 @@ function validateFormOnSubmit(theForm) {
   reason += validateUsername(theForm.name);
   reason += validatePassword(theForm.pwd);
   reason += validateEmail(theForm.email);
-  //reason += validatePhone(theForm.phone);
   reason += validateEmpty(theForm.from);
       
   if (reason != "") {
