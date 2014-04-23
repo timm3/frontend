@@ -1,10 +1,7 @@
-appDir.directive("calendar", function(){
+appDir.directive("mycalendar", function(){
 	return{
-		restrict:"A",
-		controller: function($scope){
-			$scope.elems = [];
-			$scope.elems.push([]);
-			$scope.elems.push([]);
-		}
+		restrict:"E",
+		templateUrl:"static/partials/Calendar.html"
+		
 	};
 });

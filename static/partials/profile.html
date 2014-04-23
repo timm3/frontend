@@ -1,143 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-	
-		<link type='text/css' rel='stylesheet' href='css/courses_calendar.css'>
-		<link type='text/css' rel='stylesheet' href='css/search_result.css'>
-		
-		<script type='text/javascript' src='js/courses_calendar.js'></script>
-		
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<meta name="description" content="Automated class registration system.">
-    	<meta name="author" content="Michal">
-    	<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
-
-    	<title>Profile</title>
-
-    <!-- Bootstrap core CSS -->
-    	<link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-	</head>
-	
-	<body>
+<style>
+  	
+	.msgDiv {
+		display: none;
+	}
+	.form-wrapper {
+		max-width: 700px;
+		padding: 19px 29px 29px;
+		margin: 0 auto 20px;
+		background-color: #fff;
+		border: 1px solid #e5e5e5;
+	}
+</style>
 
 
-<!-- ======================================================================= -->
-		<div id='container_search_result'>
-			<table id='search_result'>
-				<tr class='title_row'>
-					<td><b>CODE</b></td>
-					<td><b>ID</b></td>
-					<td><b>SUBJECT</b></td>
-					<td><b>CRN</b></td>
-					<td><b>START TIME</b></td>
-					<td><b>END TIME</b></td>
-					<td><b>DAYS</b></td>
-				</tr>
-				<tr>
-					<td>MATH</td>
-					<td>241</td>
-					<td>Calculus III</td>
-					<td>10145</td>
-					<td>01:00 AM</td>
-					<td>01:50 AM</td>
-					<td>MWF</td>
-				</tr>
-				<tr>
-					<td>PHYS</td>
-					<td>211</td>
-					<td>Classical Mechanics</td>
-					<td>31254</td>
-					<td>09:00 AM</td>
-					<td>10:50 AM</td>
-					<td>TR</td>
-				</tr>
-				<tr>
-					<td>CS</td>
-					<td>173</td>
-					<td>Discrete Structures</td>
-					<td>33300</td>
-					<td>02:00 PM</td>
-					<td>02:50 PM</td>
-					<td>MWF</td>
-				</tr>
-				<tr>
-					<td>BB</td>
-					<td>101</td>
-					<td>Cooking Meth</td>
-					<td>10001</td>
-					<td>10:00 PM</td>
-					<td>11:50 PM</td>
-					<td>SU</td>
-				</tr>
-				<tr>
-					<td>AST</td>
-					<td>599</td>
-					<td>Reading your grades from stars</td>
-					<td>13571</td>
-					<td>09:00 PM</td>
-					<td>09:50 PM</td>
-					<td>U</td>
-				</tr>
-			</table>
-			<div id='add_buttons'>
-				<button class='add_button' onclick='addToCalendar(0)'>add</button>
-				<button class='add_button' onclick='addToCalendar(1)'>add</button>
-				<button class='add_button' onclick='addToCalendar(2)'>add</button>
-				<button class='add_button' onclick='addToCalendar(3)'>add</button>
-				<button class='add_button' onclick='addToCalendar(4)'>add</button>
+<div class="form-wrapper">
+	<header class="modal-title" id="myModalLabel">
+		<span class="text-left" style="font-size:larger;"><b>Profile</b></span>
+	</header>
+
+<!--================================================== -->
+
+<form class="form-horizontal" role="form" action="/signup" id="signup" method="post">
+  <div class="form-group">
+    <label for="name" class="col-sm-4 control-label">Name</label>
+    <div class="col-sm-6">
+      <input class="form-control" ng-model="accountDetails.userName" ng-disabled id="name" placeholder="Name" type="text" onChange="validateUsername('username', this, document.getElementById('validNameMessage'), document.getElementById('validNameDiv'));">
+    </div>
+  </div>
+  <div class="form-group msgDiv" id="validNameDiv">
+    <div class="col-sm-offset-1 col-sm-10">
+      <p id="validNameMessage"></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-4 control-label">Email Address</label>
+    <div class="col-sm-6">
+      <input class="form-control" ng-model="accountDetails.email" id="inputEmail3" placeholder="Email Address" type="email" onChange="validEmail(this, document.getElementById('validEmailMessage'), document.getElementById('validEmailDiv'));">
+    </div>
+  </div>
+  <div class="form-group msgDiv" id="validEmailDiv">
+    <div class="col-sm-offset-1 col-sm-10">
+      <p id="validEmailMessage"></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+    <div class="col-sm-6">
+      <input class="form-control" ng-model="accountDetails.password" id="inputPassword3" placeholder="Password" type="password" onKeyUp="checkPass('pass', document.getElementById('inputPassword3'), document.getElementById('confirmPassword3'), document.getElementById('passwordMatchMessage'), document.getElementById('validPasswordDiv'));"> 
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword3" class="col-sm-4 control-label">Confirm Password</label>
+    <div class="col-sm-6">
+      <input class="form-control" ng-model="accountDetails.confirmPassword" id="confirmPassword3" placeholder="Confirm Password" type="password" onKeyUp="checkPass('pass', document.getElementById('inputPassword3'), document.getElementById('confirmPassword3'), document.getElementById('passwordMatchMessage'), document.getElementById('validPasswordDiv'));">
+    </div>
+  </div>
+  <div class="form-group msgDiv" id="validPasswordDiv">
+    <div class="col-sm-offset-1 col-sm-10">
+      <p id="passwordMatchMessage"></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-10">
+      <p>Netid and AD password are optional to enable automatated class registration</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="netid" class="col-sm-4 control-label">Netid</label>
+    <div class="col-sm-6">
+      <input class="form-control" ng-model="accountDetails.netId" id="netid" placeholder="Netid" type="text" onChange="validateUsername('netid', this, document.getElementById('validNetidMessage'), document.getElementById('validNetidDiv'));">
+    </div>
+  </div>
+  <div class="form-group msgDiv" id="validNetidDiv">
+    <div class="col-sm-offset-1 col-sm-10">
+      <p id="validNetidMessage"></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputADPassword3" class="col-sm-4 control-label">AD Password</label>
+    <div class="col-sm-6">
+      <input class="form-control" ng-model="accountDetails.adPassword" id="inputADPassword3" placeholder="AD Password" type="password" onKeyUp="checkPass('adPass', document.getElementById('inputADPassword3'), document.getElementById('confirmADPassword3'), document.getElementById('ADpasswordMatchMessage'), document.getElementById('validADPasswordDiv'));">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmADPassword3" class="col-sm-4 control-label">Confirm AD Password</label>
+    <div class="col-sm-6">
+      <input class="form-control" ng-model="accountDetails.confirmAd" id="confirmADPassword3" placeholder="Confirm AD Password" type="password" onKeyUp="checkPass('adPass', document.getElementById('inputADPassword3'), document.getElementById('confirmADPassword3'), document.getElementById('ADpasswordMatchMessage'), document.getElementById('validADPasswordDiv'));">
+    </div>
+  </div>
+  <div class="form-group msgDiv" id="validADPasswordDiv">
+    <div class="col-sm-offset-1 col-sm-10">
+      <p id="ADpasswordMatchMessage"></p>
+    </div>
+  </div>
+  <div class="form-group">
+  	<span style="float:right;">
+      <button type="button" class="btn btn-primary" style="position:relative;left:-10%;" data-dismiss="modal" onClick="validateSignup();">Update</button>
+      <button type="button" class="btn btn-default" ng-click="cancel()" style="position:relative;left:-10%;" data-dismiss="modal">Cancel</button>
+    </span>
+  </div>
+</form>
+</div>
+<div id='calendar'>
+	<div id='times_column'>
+		<div id='days_label_extension' style="height:23px; width:50px;"></div>
+		<div class='atime' id='8am'>8 am<br></div>
+		<div class='atime' id='9am'>9 am<br></div>
+		<div class='atime' id='10am'>10 am<br></div>
+		<div class='atime' id='11am'>11 am<br></div>
+		<div class='atime' id='12pm'>12 pm<br></div>
+		<div class='atime' id='1pm'>1 pm<br></div>
+		<div class='atime' id='2pm'>2 pm<br></div>
+		<div class='atime' id='3pm'>3 pm<br></div>
+		<div class='atime' id='4pm'>4 pm<br></div>
+		<div class='atime' id='5pm'>5 pm<br></div>
+		<div class='atime' id='6pm'>6 pm<br></div>
+		<div class='atime' id='7pm'>7 pm<br></div>
+		<div class='atime' id='8pm'>8 pm<br></div>
+		<div class='atime' id='9pm'>9 pm<br></div>
+		<div class='atime' id='10pm'>10 pm<br></div>
+		<div class='atime' id='11pm'>11 pm<br></div>
+	</div>
+	<div id='days_column' style="">
+		<div id='days_label'>
+			<div class='aday_label' id='sunday_label' >Sunday</div>
+			<div class='aday_label' id='monday_label' >Monday</div>
+			<div class='aday_label' id='tuesday_label' >Tuesday</div>
+			<div class='aday_label' id='wednesday_label' >Wednesday</div>
+			<div class='aday_label' id='thursday_label' >Thursday</div>
+			<div class='aday_label' id='friday_label' >Friday</div>
+			<div class='aday_label' id='saturday_label' >Saturday</div>
+		</div>
+		<div id='days_times'>
+			<div class='aday_times' id='sunday_times' style="border-style:solid; border-width:0px 1px 0px 1px; border-color:#BFBFBF;">
+			</div>
+			<div class='aday_times' id='monday_times' >
+			</div>
+			<div class='aday_times' id='tuesday_times' >
+			</div>
+			<div class='aday_times' id='wednesday_times' >
+			</div>
+			<div class='aday_times' id='thursday_times' >
+			</div>
+			<div class='aday_times' id='friday_times' >
+			</div>
+			<div class='aday_times' id='saturday_times' >
 			</div>
 		</div>
+	</div>
+</div>
 
-		<div id='calendar'>
-			<div id='times_column'>
-				<div id='days_label_extension' style="height:23px; width:50px;"></div>
-				<div class='atime' id='8am'>8 am<br></div>
-				<div class='atime' id='9am'>9 am<br></div>
-				<div class='atime' id='10am'>10 am<br></div>
-				<div class='atime' id='11am'>11 am<br></div>
-				<div class='atime' id='12pm'>12 pm<br></div>
-				<div class='atime' id='1pm'>1 pm<br></div>
-				<div class='atime' id='2pm'>2 pm<br></div>
-				<div class='atime' id='3pm'>3 pm<br></div>
-				<div class='atime' id='4pm'>4 pm<br></div>
-				<div class='atime' id='5pm'>5 pm<br></div>
-				<div class='atime' id='6pm'>6 pm<br></div>
-				<div class='atime' id='7pm'>7 pm<br></div>
-				<div class='atime' id='8pm'>8 pm<br></div>
-				<div class='atime' id='9pm'>9 pm<br></div>
-				<div class='atime' id='10pm'>10 pm<br></div>
-				<div class='atime' id='11pm'>11 pm<br></div>
-			</div>
-			<div id='days_column' style="">
-				<div id='days_label'>
-					<div class='aday_label' id='sunday_label' >Sunday</div>
-					<div class='aday_label' id='monday_label' >Monday</div>
-					<div class='aday_label' id='tuesday_label' >Tuesday</div>
-					<div class='aday_label' id='wednesday_label' >Wednesday</div>
-					<div class='aday_label' id='thursday_label' >Thursday</div>
-					<div class='aday_label' id='friday_label' >Friday</div>
-					<div class='aday_label' id='saturday_label' >Saturday</div>
-				</div>
-				<div id='days_times'>
-					<div class='aday_times' id='sunday_times' style="border-style:solid; border-width:0px 1px 0px 1px; border-color:#BFBFBF;">
-					</div>
-					<div class='aday_times' id='monday_times' >
-					</div>
-					<div class='aday_times' id='tuesday_times' >
-					</div>
-					<div class='aday_times' id='wednesday_times' >
-					</div>
-					<div class='aday_times' id='thursday_times' >
-					</div>
-					<div class='aday_times' id='friday_times' >
-					</div>
-					<div class='aday_times' id='saturday_times' >
-					</div>
-				</div>
-			</div>
-		</div>
-		<button onclick="addCourse('monday_times')">add a course</button>
-	</body>
-</html>
