@@ -3,7 +3,7 @@
 	.msgDiv {
 		display: none;
 	}
-	.form-wrapper {
+	.form-horizontal {
 		max-width: 700px;
 		padding: 19px 29px 29px;
 		margin: 0 auto 20px;
@@ -11,96 +11,20 @@
 		border: 1px solid #e5e5e5;
 	}
 </style>
+<form class="form-horizontal" name="regform" novalidate>
+	<div class="form-group" ng-class="{'has-error' : regform.usernetid.$invalid}">
+		<label class="col-sm-3 control-label">Net Id:</label>
+		<div class="col-sm-9">
+			<input type="text" name="usernetid" class="form-control" ng-model="netid"  placeholder="Net Id">
+		</div>
+	 </div>
+	<div class="col-sm-3"></div>
+	<div class="col-sm-7">
+		<button ng-disabled="regform.$invalid || validForm()" ng-click="register(netid)" class="btn btn-primary pull-left">Register</button>
+	</div>
 
-
-<div class="form-wrapper">
-	<header class="modal-title" id="myModalLabel">
-		<span class="text-left" style="font-size:larger;"><b>Profile</b></span>
-	</header>
-
-<!--================================================== -->
-
-<form class="form-horizontal" role="form" action="/signup" id="signup" method="post">
-  <div class="form-group">
-    <label for="name" class="col-sm-4 control-label">Name</label>
-    <div class="col-sm-6">
-      <input class="form-control" ng-model="accountDetails.userName" ng-disabled id="name" placeholder="Name" type="text" onChange="validateUsername('username', this, document.getElementById('validNameMessage'), document.getElementById('validNameDiv'));">
-    </div>
-  </div>
-  <div class="form-group msgDiv" id="validNameDiv">
-    <div class="col-sm-offset-1 col-sm-10">
-      <p id="validNameMessage"></p>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-4 control-label">Email Address</label>
-    <div class="col-sm-6">
-      <input class="form-control" ng-model="accountDetails.email" id="inputEmail3" placeholder="Email Address" type="email" onChange="validEmail(this, document.getElementById('validEmailMessage'), document.getElementById('validEmailDiv'));">
-    </div>
-  </div>
-  <div class="form-group msgDiv" id="validEmailDiv">
-    <div class="col-sm-offset-1 col-sm-10">
-      <p id="validEmailMessage"></p>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
-    <div class="col-sm-6">
-      <input class="form-control" ng-model="accountDetails.password" id="inputPassword3" placeholder="Password" type="password" onKeyUp="checkPass('pass', document.getElementById('inputPassword3'), document.getElementById('confirmPassword3'), document.getElementById('passwordMatchMessage'), document.getElementById('validPasswordDiv'));"> 
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="confirmPassword3" class="col-sm-4 control-label">Confirm Password</label>
-    <div class="col-sm-6">
-      <input class="form-control" ng-model="accountDetails.confirmPassword" id="confirmPassword3" placeholder="Confirm Password" type="password" onKeyUp="checkPass('pass', document.getElementById('inputPassword3'), document.getElementById('confirmPassword3'), document.getElementById('passwordMatchMessage'), document.getElementById('validPasswordDiv'));">
-    </div>
-  </div>
-  <div class="form-group msgDiv" id="validPasswordDiv">
-    <div class="col-sm-offset-1 col-sm-10">
-      <p id="passwordMatchMessage"></p>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-1 col-sm-10">
-      <p>Netid and AD password are optional to enable automatated class registration</p>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="netid" class="col-sm-4 control-label">Netid</label>
-    <div class="col-sm-6">
-      <input class="form-control" ng-model="accountDetails.netId" id="netid" placeholder="Netid" type="text" onChange="validateUsername('netid', this, document.getElementById('validNetidMessage'), document.getElementById('validNetidDiv'));">
-    </div>
-  </div>
-  <div class="form-group msgDiv" id="validNetidDiv">
-    <div class="col-sm-offset-1 col-sm-10">
-      <p id="validNetidMessage"></p>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputADPassword3" class="col-sm-4 control-label">AD Password</label>
-    <div class="col-sm-6">
-      <input class="form-control" ng-model="accountDetails.adPassword" id="inputADPassword3" placeholder="AD Password" type="password" onKeyUp="checkPass('adPass', document.getElementById('inputADPassword3'), document.getElementById('confirmADPassword3'), document.getElementById('ADpasswordMatchMessage'), document.getElementById('validADPasswordDiv'));">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="confirmADPassword3" class="col-sm-4 control-label">Confirm AD Password</label>
-    <div class="col-sm-6">
-      <input class="form-control" ng-model="accountDetails.confirmAd" id="confirmADPassword3" placeholder="Confirm AD Password" type="password" onKeyUp="checkPass('adPass', document.getElementById('inputADPassword3'), document.getElementById('confirmADPassword3'), document.getElementById('ADpasswordMatchMessage'), document.getElementById('validADPasswordDiv'));">
-    </div>
-  </div>
-  <div class="form-group msgDiv" id="validADPasswordDiv">
-    <div class="col-sm-offset-1 col-sm-10">
-      <p id="ADpasswordMatchMessage"></p>
-    </div>
-  </div>
-  <div class="form-group">
-  	<span style="float:right;">
-      <button type="button" class="btn btn-primary" style="position:relative;left:-10%;" data-dismiss="modal" onClick="validateSignup();">Update</button>
-      <button type="button" class="btn btn-default" ng-click="cancel()" style="position:relative;left:-10%;" data-dismiss="modal">Cancel</button>
-    </span>
-  </div>
 </form>
-</div>
+
 <div id='calendar'>
 	<div id='times_column'>
 		<div id='days_label_extension' style="height:23px; width:50px;"></div>

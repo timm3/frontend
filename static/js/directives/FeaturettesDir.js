@@ -4,6 +4,6 @@ appDir.directive("featurettes", function(){
 		controller: function($scope){
 			  
 		},
-		templateUrl:"/static/partials/featurettes.html"
+		templateUrl:"/static/partials/Featurettes.html"
 	};
 });
