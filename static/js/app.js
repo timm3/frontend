@@ -11,6 +11,7 @@ var app = angular.module('RegNow', ['ngRoute','RegNow.controllers', 'RegNow.dire
 	    $routeProvider.when('/About', {templateUrl: '/static/partials/about.html'});
 	    $routeProvider.when('/SignIn', {templateUrl: '/static/partials/signin.html'});
 	    $routeProvider.when('/SignUp', {templateUrl: '/static/partials/signup.html'});
+	    $routeProvider.when('/Register', {templateUrl: 'static/partials/register.html'});
 	    $routeProvider.otherwise({redirectTo: '/home'});
 	  });
 

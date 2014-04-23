@@ -93,4 +93,5 @@ app.add_url_rule('/register', view_func=Register.as_view("register"), methods=['
 
 
 if __name__ == "__main__":
-	app.run(debug=True)
+ app.run(debug=True) #<-- use this for localhost
+  # app.run(host="0.0.0.0", debug=False, port=80) #<-- use this on the deployment server.

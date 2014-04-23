@@ -64,7 +64,6 @@
 .course_entry {
 	position:absolute;
 	width:100%;
-	background-color:rgba(61,0,122,0.5);
 	z-index:10;	
 	padding:3px;
 	font-size:12px;
@@ -73,15 +72,15 @@
 .remove_button {
 	float: right;
 	clear:both;
-	height: 16px;
+	height: 14px;
 	width:14px;
-	font-size: 10px;
+	font-size: 9px;
 	margin:0 0 0 0;
 	padding:0 0 0 0;
 	top:0;
 	background-color:#454444;
 	color:#B5B5B5;
-	
+	text-align:center;
 	border-width:1px;
 	border-color:#454545;
 }
@@ -99,33 +98,3 @@
 	border-width:1px;
 	border-color:#8C8C8C;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
