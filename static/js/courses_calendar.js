@@ -1,5 +1,6 @@
 /**
 *	This function generate from course information an HTML div with that can be added to a calendar. 
+
 *	@param courseInfo associated array of course info values
 *	@return array of DOM objects that represent course from given information
 */
