@@ -217,7 +217,7 @@ class CourseQuery(MongoQuery):
                                             done = True
                                             break
                             else:
-                                if section_json['days_of_week'] is not None:
+                                if days_of_week and section_json['days_of_week'] is not None:
                                     for char_index in range(1, len(section_json['days_of_week'])):
                                         char = section_json['days_of_week'][char_index]
                                         if char not in days_of_week:

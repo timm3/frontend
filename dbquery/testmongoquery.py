@@ -88,7 +88,7 @@ class Test(unittest.TestCase):
         self.sq.connect()
         start_num = 1000
         end_num = 1400
-        list = self.cq.search_for_course_cursor(subject_code = 'CS', start_time = start_num, end_time = end_num)
+        list = self.cq.search_for_course_with_time_cursor(subject_code = 'CS', start_time = start_num, end_time = end_num)
         for json in list:
             boolean = False
             start_end_list
