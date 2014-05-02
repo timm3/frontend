@@ -5,6 +5,7 @@
  \************************************************************/
 function validateUsername(type, usernameField, messageParagraph, messageDiv) {
     var error = "";
+    console.log(usernameField);
 	var fld = usernameField; 
 	var msg = messageParagraph; 
 	var msgDiv = messageDiv; 

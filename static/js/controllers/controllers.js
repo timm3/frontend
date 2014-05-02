@@ -2,5 +2,5 @@
 
 /* Controllers */
 
-var appCtrls = angular.module('RegNow.controllers', ['ui.calendar']);
+var appCtrls = angular.module('RegNow.controllers', ['ui.utils']);
 

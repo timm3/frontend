@@ -1,11 +1,11 @@
-	<style>
-  	body {
-  		background-image:url("static/img/back7.jpg");
-  	}
-  	
-  	.msgDiv {
-  		display: none;
-  	}
+  <style>
+    body {
+      background-image:url("static/img/back7.jpg");
+    }
+    
+/*    .msgDiv {
+      display: none;
+    }*/
     .form-wrapper {
     max-width: 700px;
     padding: 19px 29px 29px;
@@ -13,102 +13,109 @@
     background-color: #fff;
     border: 1px solid #e5e5e5;
   }
-	</style>
+  </style>
 
 
-    <!-- <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header"> -->
-          <div class="form-wrapper">
-          <header class="modal-title" id="myModalLabel">
-            <span class="text-left" style="font-size:larger;"><b>Create An Account</b></span>
-            <span class="text-right" style="float:right;"><b><a href="/#/SignIn">LOG IN?</a></b></span>
-          </header>
-        <!-- </div> -->
+
+<div class="form-wrapper">
+  <header class="modal-title" id="myModalLabel">
+    <span class="text-left" style="font-size:larger;"><b>Create An Account</b></span>
+    <span class="text-right" style="float:right;"><b><a href="/#/SignIn">LOG IN?</a></b></span>
+  </header>
 
 <!--================================================== -->
 
-        <form class="form-horizontal" role="form" action="/signup" name="signup" id="signup" method="post">
-          <div class="form-group">
-            <label for="name" class="col-sm-4 control-label">Name</label>
-            <div class="col-sm-6">
-              <input class="form-control" id="name" placeholder="Name" type="text" onChange="validateUsername('username', this, document.getElementById('validNameMessage'), document.getElementById('validNameDiv'));">
-            </div>
-          </div>
-          <div class="form-group msgDiv" id="validNameDiv">
-            <div class="col-sm-offset-1 col-sm-10">
-              <p id="validNameMessage"></p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-4 control-label">Email Address</label>
-            <div class="col-sm-6">
-              <input class="form-control" id="inputEmail3" placeholder="Email Address" type="email" onChange="validEmail(this, document.getElementById('validEmailMessage'), document.getElementById('validEmailDiv'));">
-            </div>
-          </div>
-          <div class="form-group msgDiv" id="validEmailDiv">
-            <div class="col-sm-offset-1 col-sm-10">
-              <p id="validEmailMessage"></p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
-            <div class="col-sm-6">
-              <input class="form-control" id="inputPassword3" placeholder="Password" type="password" onKeyUp="checkPass('pass', document.getElementById('inputPassword3'), document.getElementById('confirmPassword3'), document.getElementById('passwordMatchMessage'), document.getElementById('validPasswordDiv'));">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="confirmPassword3" class="col-sm-4 control-label">Confirm Password</label>
-            <div class="col-sm-6">
-              <input class="form-control" id="confirmPassword3" placeholder="Confirm Password" type="password" onKeyUp="checkPass('pass', document.getElementById('inputPassword3'), document.getElementById('confirmPassword3'), document.getElementById('passwordMatchMessage'), document.getElementById('validPasswordDiv'));">
-            </div>
-          </div>
-          <div class="form-group msgDiv" id="validPasswordDiv">
-            <div class="col-sm-offset-1 col-sm-10">
-              <p id="passwordMatchMessage"></p>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-1 col-sm-10">
-              <p>Netid and AD password are optional to enable automatated class registration</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="netid" class="col-sm-4 control-label">Netid</label>
-            <div class="col-sm-6">
-              <input class="form-control" id="netid" placeholder="Netid" type="text" onChange="validateUsername('netid', this, document.getElementById('validNetidMessage'), document.getElementById('validNetidDiv'));">
-            </div>
-          </div>
-          <div class="form-group msgDiv" id="validNetidDiv">
-            <div class="col-sm-offset-1 col-sm-10">
-              <p id="validNetidMessage"></p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputADPassword3" class="col-sm-4 control-label">AD Password</label>
-            <div class="col-sm-6">
-              <input class="form-control" id="inputADPassword3" placeholder="AD Password" type="password" onKeyUp="checkPass('adPass', document.getElementById('inputADPassword3'), document.getElementById('confirmADPassword3'), document.getElementById('ADpasswordMatchMessage'), document.getElementById('validADPasswordDiv'));">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="confirmADPassword3" class="col-sm-4 control-label">Confirm AD Password</label>
-            <div class="col-sm-6">
-              <input class="form-control" id="confirmADPassword3" placeholder="Confirm AD Password" type="password" onKeyUp="checkPass('adPass', document.getElementById('inputADPassword3'), document.getElementById('confirmADPassword3'), document.getElementById('ADpasswordMatchMessage'), document.getElementById('validADPasswordDiv'));">
-            </div>
-          </div>
-          <div class="form-group msgDiv" id="validADPasswordDiv">
-            <div class="col-sm-offset-1 col-sm-10">
-              <p id="ADpasswordMatchMessage"></p>
-            </div>
-          </div>
-          <div class="form-group">
-          	<span style="float:right;">
-    	      <button type="button" class="btn btn-primary" style="position:relative;left:-10%;" data-dismiss="modal" onClick="validateSignup();">Sign Up</button>
-	          <button type="button" class="btn btn-default" style="position:relative;left:-10%;" data-dismiss="modal">Cancel</button>
-            </span>
-          </div>
-        </form>
+  <form class="form-horizontal" name="signup" novalidate>
+   
+    <div class="form-group" ng-class="{'has-error' : signup.username.$invalid && !signup.username.$pristine}">
+      <label class="col-sm-4 control-label">Name</label>
+      <div class="col-sm-6">
+        <input name="username" required type="text" ng-model="inputs.userName" class="form-control" placeholder="Name"  ui-validate=" 'validateUserName($value, \'username\', signup.username.$pristine)' "> {{inputs.userName}}
       </div>
-      <!-- </div>
-    </div> -->
+    </div>
+    <div ng-show="inputs.userNameError != null" class="form-group" id="validNameDiv">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p style="color:#a94442;" id="validNameMessage">{{inputs.userNameError}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : signup.inputEmail3.$invalid && !signup.inputEmail3.$pristine}">
+      <label for="inputEmail3" class="col-sm-4 control-label">Email Address</label>
+      <div class="col-sm-6">
+        <input required ng-model="inputs.email" class="form-control" name="inputEmail3" placeholder="Email Address"  ui-validate=" 'validEmail($value, signup.inputEmail3.$pristine)' "> {{inputs.email}}
+      </div>
+    </div>
+    <div ng-show="inputs.emailError != null" class="form-group " id="validEmailDiv">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p style="color:#a94442;" id="validEmailMessage">{{inputs.emailError}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : signup.inputPassword3.$invalid && !signup.inputPassword3.$pristine}">
+      <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+      <div class="col-sm-6">
+        <input required ng-model="inputs.password" class="form-control" name="inputPassword3" placeholder="Password" type="password" >{{inputs.password}}
+      </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : signup.confirmPassword3.$invalid && !signup.confirmPassword3.$pristine}">
+      <label for="confirmPassword3" class="col-sm-4 control-label">Confirm Password</label>
+      <div class="col-sm-6">
+        <input required ng-model="inputs.confPassword" class="form-control" name="confirmPassword3" placeholder="Confirm Password" type="password" ui-validate=" 'checkPass($value, signup.inputPassword3.$pristine, \'pass\')' ">
+      </div>
+    </div>
+    <div ng-show="inputs.passwordError != null && inputs.passwordError != 'Passwords Match! \n'" class="form-group" id="validPasswordDiv">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p style="color:#a94442;" id="passwordMatchMessage">{{inputs.passwordError}}</p>
+      </div>
+    </div>
+    <div ng-show="inputs.passwordError == 'Passwords Match! \n'" class="form-group" id="validPasswordDiv">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p style="color:green;" id="passwordMatchMessage">{{inputs.passwordError}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-1 col-sm-10">
+        <p>Netid and AD password are <strong>optional</strong> to enable automatated class registration</p>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : signup.netid.$invalid && !signup.netid.$pristine}">
+      <label for="netid" class="col-sm-4 control-label">Netid</label>
+      <div class="col-sm-6">
+        <input ng-model="inputs.netId" class="form-control" name="netid" placeholder="Netid" type="text" ui-validate=" 'validateUserName($value, \'netid\', signup.netid.$pristine)' ">{{inputs.netId}}
+      </div>
+    </div>
+    <div ng-show="inputs.netIdError != null" class="form-group" id="validNetidDiv">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p style="color:#a94442;" id="validNetidMessage">{{inputs.netIdError}}</p>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : signup.inputADPassword3.$invalid}">
+      <label for="inputADPassword3" class="col-sm-4 control-label">AD Password</label>
+      <div class="col-sm-6">
+        <input ng-required="inputs.netId != null" ng-model="inputs.adPassword" class="form-control" name="inputADPassword3" placeholder="AD Password" type="password">
+      </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : signup.confirmADPassword3.$invalid}">
+      <label for="confirmADPassword3" class="col-sm-4 control-label">Confirm AD Password</label>
+      <div class="col-sm-6">
+        <input ng-required="inputs.adPassword != null" ng-model="inputs.confAdPassword" class="form-control" name="confirmADPassword3" placeholder="Confirm AD Password" type="password" ui-validate=" 'checkPass($value, signup.confirmADPassword3.$pristine, \'adPass\')' ">
+      </div>
+    </div>
+    <div ng-show="inputs.adPasswordError != null && inputs.adPasswordError != 'AD Passwords Match! \n'" class="form-group" id="validADPasswordDiv">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p style="color:#a94442;" id="ADpasswordMatchMessage">{{inputs.adPasswordError}}</p>
+      </div>
+    </div>
+    <div ng-show="inputs.adPasswordError == 'AD Passwords Match! \n'" class="form-group" id="validPasswordDiv">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p style="color:green;" id="passwordMatchMessage">{{inputs.adPasswordError}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <span style="float:right;">
+      <button ng-disabled="signup.$invalid"  class="btn btn-primary" style="position:relative;left:-10%;" ng-click="submit()">Sign Up</button>
+      <button class="btn btn-default" style="position:relative;left:-10%;" ng-click="cancel()">Cancel</button>
+      </span>
+    </div>
+  </form>
+</div>
+
 

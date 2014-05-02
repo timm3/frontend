@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+	
+		<link type='text/css' rel='stylesheet' href='../css/courses_calendar.css'>
+		<link type='text/css' rel='stylesheet' href='../css/search_result.css'>
+		
+		<script type='text/javascript' src='../js/courses_calendar.js'></script>
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="Automated class registration system.">
+    	<meta name="author" content="Michal">
+    	<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    	<title>Profile</title>
+
+    <!-- Bootstrap core CSS -->
+    	<link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	</head>
+	
+	<body>
+
+
+<!-- ======================================================================= -->
+		<div id='container_search_result'>
+			<table id='search_result'>
+				<tr class='title_row'>
+					<td><b>CODE</b></td>
+					<td><b>ID</b></td>
+					<td><b>SUBJECT</b></td>
+					<td><b>CRN</b></td>
+					<td><b>START TIME</b></td>
+					<td><b>END TIME</b></td>
+					<td><b>DAYS</b></td>
+				</tr>
+				<tr>
+					<td>MATH</td>
+					<td>241</td>
+					<td>Calculus III</td>
+					<td>10145</td>
+					<td>01:00 AM</td>
+					<td>01:50 AM</td>
+					<td>MWF</td>
+				</tr>
+				<tr>
+					<td>PHYS</td>
+					<td>211</td>
+					<td>Classical Mechanics</td>
+					<td>31254</td>
+					<td>09:00 AM</td>
+					<td>10:50 AM</td>
+					<td>TR</td>
+				</tr>
+				<tr>
+					<td>CS</td>
+					<td>173</td>
+					<td>Discrete Structures</td>
+					<td>33300</td>
+					<td>02:00 PM</td>
+					<td>02:50 PM</td>
+					<td>MWF</td>
+				</tr>
+				<tr>
+					<td>BB</td>
+					<td>101</td>
+					<td>Cooking Meth</td>
+					<td>10001</td>
+					<td>10:00 PM</td>
+					<td>11:50 PM</td>
+					<td>SU</td>
+				</tr>
+				<tr>
+					<td>AST</td>
+					<td>599</td>
+					<td>Reading your grades from stars</td>
+					<td>13571</td>
+					<td>09:00 PM</td>
+					<td>09:50 PM</td>
+					<td>U</td>
+				</tr>
+			</table>
+			<div id='add_buttons'>
+				<button class='add_button' onclick='addToCalendar(0)'>add</button>
+				<button class='add_button' onclick='addToCalendar(1)'>add</button>
+				<button class='add_button' onclick='addToCalendar(2)'>add</button>
+				<button class='add_button' onclick='addToCalendar(3)'>add</button>
+				<button class='add_button' onclick='addToCalendar(4)'>add</button>
+			</div>
+		</div>
+
+		<div id='regnow'>
+			<h4>Enter CRN's separated by commas for RegNow registration</h4>
+			<button class='register_button' onclick='register()'>Register via Regnow</button>
+			<button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary" onclick='register()'>Loading state</button>
+			<script>
+  				$('#loading-example-btn').click(function () {
+    			var btn = $(this)
+    			btn.button('loading')
+    			$.ajax(...).always(function () {
+      				btn.button('reset')
+    				});
+  				});
+			</script>
+		</div>
+
+		<div id='calendar'>
+			<div id='times_column'>
+				<div id='days_label_extension' style="height:23px; width:50px;"></div>
+				<div class='atime' id='8am'>8 am<br></div>
+				<div class='atime' id='9am'>9 am<br></div>
+				<div class='atime' id='10am'>10 am<br></div>
+				<div class='atime' id='11am'>11 am<br></div>
+				<div class='atime' id='12pm'>12 pm<br></div>
+				<div class='atime' id='1pm'>1 pm<br></div>
+				<div class='atime' id='2pm'>2 pm<br></div>
+				<div class='atime' id='3pm'>3 pm<br></div>
+				<div class='atime' id='4pm'>4 pm<br></div>
+				<div class='atime' id='5pm'>5 pm<br></div>
+				<div class='atime' id='6pm'>6 pm<br></div>
+				<div class='atime' id='7pm'>7 pm<br></div>
+				<div class='atime' id='8pm'>8 pm<br></div>
+				<div class='atime' id='9pm'>9 pm<br></div>
+				<div class='atime' id='10pm'>10 pm<br></div>
+				<div class='atime' id='11pm'>11 pm<br></div>
+			</div>
+			<div id='days_column' style="">
+				<div id='days_label'>
+					<div class='aday_label' id='sunday_label' >Sunday</div>
+					<div class='aday_label' id='monday_label' >Monday</div>
+					<div class='aday_label' id='tuesday_label' >Tuesday</div>
+					<div class='aday_label' id='wednesday_label' >Wednesday</div>
+					<div class='aday_label' id='thursday_label' >Thursday</div>
+					<div class='aday_label' id='friday_label' >Friday</div>
+					<div class='aday_label' id='saturday_label' >Saturday</div>
+				</div>
+				<div id='days_times'>
+					<div class='aday_times' id='sunday_times' style="border-style:solid; border-width:0px 1px 0px 1px; border-color:#BFBFBF;">
+					</div>
+					<div class='aday_times' id='monday_times' >
+					</div>
+					<div class='aday_times' id='tuesday_times' >
+					</div>
+					<div class='aday_times' id='wednesday_times' >
+					</div>
+					<div class='aday_times' id='thursday_times' >
+					</div>
+					<div class='aday_times' id='friday_times' >
+					</div>
+					<div class='aday_times' id='saturday_times' >
+					</div>
+				</div>
+			</div>
+		</div>
+		<button onclick="addCourse('monday_times')">add a course</button>
+	</body>
+</html>
