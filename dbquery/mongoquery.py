@@ -186,7 +186,7 @@ class CourseQuery(MongoQuery):
         if credit_hours:
             query['credit_hours'] = self.process_credit_hours_query(credit_hours)
         if min_prof_rating:
-            query['gpa'] = {'$gte': min_prof_rating}
+            query['prof_rating'] = {'$gte': min_prof_rating}
         return self.get_cursor(query)
 
     
