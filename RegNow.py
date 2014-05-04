@@ -237,5 +237,5 @@ app.add_url_rule('/signupInfo', view_func=SignUp.as_view("sign_up"), methods=['P
 #app.add_url_rule('/SignIn', view_func=SignIn.as_view("signin"), methods=['POST'])
 
 if __name__ == "__main__":
- app.run(debug=True) #<-- use this for localhost
- # app.run(host="0.0.0.0", debug=False, port=80) #<-- use this on the deployment server.
+ #app.run(debug=True) #<-- use this for localhost
+  app.run(host="0.0.0.0", debug=False, port=80) #<-- use this on the deployment server.
