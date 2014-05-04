@@ -8,7 +8,7 @@ appDir.directive("myCarousel", function(){
 			    var newWidth = 5 + slides.length;
 			    slides.push({
 			      image: '/static/img/back' + newWidth + '.jpg',
-			      text: [['Registration','Regnow makes the class registration process simplefied.', 'Sign up today'],
+			      text: [['Registration','Regnow makes the class registration process simplified.', 'Sign up today'],
 			      	['Class Information', 'Easier way to get information about classes','Browse classes'],
 			      	['Professor Rating','Easier way to get information about professors','Learn more']]
 			      	[slides.length % 3]});
