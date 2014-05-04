@@ -37,8 +37,9 @@ appCtrls.controller("ClassTableCtrl",
 			'endTime': classSection.end, 
 			'days': classSection.days_of_week,
 			'id': $scope.selectedId};
-		$scope.saveInfo.pushClass(toAdd);
-		addToCalendar(toAdd);
+		if($scope.saveInfo.pushClass(toAdd)){
+			addToCalendar(toAdd);
+		}
 	};
 	$scope.$watch('mySearch.getSearch()', function(newVal, oldVal){
 		if(newVal !== null){
