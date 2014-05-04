@@ -40,25 +40,4 @@ appCtrls.controller('ProfileCtrl', ['$scope',
 				});
 			}
 		};
-
-		// $scope.cancel = function(){
-		// 	$scope.accountDetails.userName = null;
-		// 	$scope.accountDetails.email = null;
-		// 	$scope.accountDetails.password = null;
-		// 	$scope.accountDetails.confirmPassword = null;
-		// 	$scope.accountDetails.netId = null;
-		// 	$scope.accountDetails.adPassword = null;
-		// 	$scope.accountDetails.confirmAd = null;
-		// }
-
 }]);
-
-// function accountDetails(){
-// 	this.userName = null;
-// 	this.email = null;
-// 	this.password = null;
-// 	this.confirmPassword = null;
-// 	this.netId = null;
-// 	this.adPassword = null;
-// 	this.confirmAd = null;
-// }
